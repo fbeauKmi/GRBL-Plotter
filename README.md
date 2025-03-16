@@ -1,5 +1,6 @@
 # KPolar
 
+GCODE sender for Windows  
 A fork of GRBL-Plotter quickly remastered to work with my Klipper Polar Plotter
 - Remove GRBL streaming
 - Add Moonraker connexion
