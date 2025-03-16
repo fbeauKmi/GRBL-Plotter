@@ -18,4 +18,6 @@ A fork of GRBL-Plotter quickly remastered to work with my Klipper Polar Plotter
 ### Requirements for compiling
 * VisualStudio 2022 
 * .NET 4.8
+
+![KPolar?jpg](./kpolar.jpg)
  
