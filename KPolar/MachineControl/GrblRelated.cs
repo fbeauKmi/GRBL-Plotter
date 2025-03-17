@@ -45,8 +45,9 @@ namespace GrblPlotter
     internal static class Grbl
     {       // need to have global access to this data?
         internal static XyzPoint posWCO = new XyzPoint(0, 0, 0);
-        internal static XyzPoint posWork = new XyzPoint(0, 0, 0);
-        internal static XyzPoint posMachine = new XyzPoint(0, 0, 0);
+        internal static XyzPoint posWork = new XyzPoint(-55, 0, 0);
+        internal static XyzPoint homePoint = new XyzPoint(-55, 0, 0);
+        internal static XyzPoint posMachine = new XyzPoint(-55, 0, 0);
         internal static GrblState Status = GrblState.unknown;
         internal static ModState StatMsg = new ModState();
         internal static Byte grblDigitalIn = 0;
@@ -491,72 +492,8 @@ namespace GrblPlotter
             }
         }
 
-        public static string GetAlarmDescription(string rxString)
-        {
-            string[] tmp = rxString.Split(':');
-            if (tmp.Length <= 1) return "no info " + tmp;
-
-            string msg = " no information found for alarm-nr. '" + tmp[1] + "'";
-            try
-            {
-                if ((messageAlarmCodes != null) && messageAlarmCodes.ContainsKey(tmp[1].Trim()))
-                    msg = Grbl.messageAlarmCodes[tmp[1].Trim()];
-            }
-            catch { }
-            return msg;
-        }
-        public static string GetRealtimeDescription(int id)
-        {
-            switch (id)
-            {
-                case 24:
-                    return "Soft-Reset";
-                case '?':
-                    return "Status Report Query";
-                case '~':
-                    return "Cycle Start / Resume";
-                case '!':
-                    return "Feed Hold";
-                case 132:
-                    return "Safety Door";
-                case 133:
-                    return "Jog Cancel";
-                case 144:
-                    return "Set 100% of programmed feed rate.";
-                case 145:
-                    return "Feed Rate increase 10%";
-                case 146:
-                    return "Feed Rate decrease 10%";
-                case 147:
-                    return "Feed Rate increase 1%";
-                case 148:
-                    return "Feed Rate decrease 1%";
-                case 149:
-                    return "Set to 100% full rapid rate.";
-                case 150:
-                    return "Set to 50% of rapid rate.";
-                case 151:
-                    return "Set to 25% of rapid rate.";
-                case 153:
-                    return "Set 100% of programmed spindle speed";
-                case 154:
-                    return "Spindle Speed increase 10%";
-                case 155:
-                    return "Spindle Speed decrease 10%";
-                case 156:
-                    return "Spindle Speed increase 1%";
-                case 157:
-                    return "Spindle Speed decrease 1%";
-                case 158:
-                    return "Toggle Spindle Stop";
-                case 160:
-                    return "Toggle Flood Coolant";
-                case 161:
-                    return "Toggle Mist Coolant";
-                default:
-                    return "unknown setting " + id.ToString();
-            }
-        }
+        
+        
     }
 
     internal enum GrblState { idle, run, hold, jog, alarm, door, check, home, sleep, probe, reset, unknown, Marlin, notConnected };

@@ -117,14 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="grblNotConnected" xml:space="preserve">
-    <value>Kontroler GRBL nie jest podłączony! Nie można wykonać żądanej akcji!</value>
-  </data>
   <data name="mainAttention" xml:space="preserve">
     <value>Uwaga</value>
-  </data>
-  <data name="mainHelpLanguage" xml:space="preserve">
-    <value>Zapraszam do poprawy tłumaczenia</value>
   </data>
   <data name="mainHotkeyError" xml:space="preserve">
     <value>Nie znaleziono pliku 'hotkeys.xml', nie ustawiono klawiszy skrótu!</value>
@@ -147,41 +141,47 @@
   <data name="mainInfoFinishSend" xml:space="preserve">
     <value>Zakończ przesyłanie G-Code</value>
   </data>
-  <data name="mainInfoKill" xml:space="preserve">
-    <value>Wciśnij "Kill Alarm", aby kontynuować ("$X")</value>
-  </data>
-  <data name="mainInfoLaserModeOff" xml:space="preserve">
-    <value>Tryb lasera nieaktywny $32=0</value>
-  </data>
-  <data name="mainInfoLaserModeOn" xml:space="preserve">
-    <value>Tryb lasera aktywny $32=1</value>
-  </data>
-  <data name="mainInfoPause" xml:space="preserve">
-    <value>Wstrzymaj przesyłąnie - naciśnij przycisk odtwarzania (</value>
-  </data>
-  <data name="mainInfoProbing" xml:space="preserve">
-    <value>Sondowanie</value>
-  </data>
-  <data name="mainInfoResume" xml:space="preserve">
-    <value>Naciśnij "Wznów", aby kontynuować</value>
-  </data>
   <data name="mainInfoSendCode" xml:space="preserve">
     <value>Wyśli G-Code</value>
-  </data>
-  <data name="mainInfoStopStream" xml:space="preserve">
-    <value>STOP streaming (</value>
-  </data>
-  <data name="mainInfoStopStream2" xml:space="preserve">
-    <value>STOP streaming ( Linia</value>
-  </data>
-  <data name="mainInfoToolChange" xml:space="preserve">
-    <value>Zmiana narzędzia...</value>
   </data>
   <data name="mainInfoUndo" xml:space="preserve">
     <value>Cofnij ostatnią akcję</value>
   </data>
-  <data name="mainProblem" xml:space="preserve">
-    <value>Problem</value>
+  <data name="mainLimits1" xml:space="preserve">
+    <value>Następny ruch przekroczy limity urządzenia!\r</value>
+  </data>
+  <data name="mainLimits2" xml:space="preserve">
+    <value>\r\n Naciśnij przycisk "Ok", aby kontynuować ruch.</value>
+  </data>
+  <data name="mainLimits3" xml:space="preserve">
+    <value>Wymiar grafiki przekracza wymiar urządzenia!\r\nTransformacja jest zalecana, aby uniknąć uszkodzenia urządzenia!</value>
+  </data>
+  <data name="mainLoadError" xml:space="preserve">
+    <value>Przesyłanie strumieniowe musi zostać zatrzymane przed załadowaniem nowego pliku</value>
+  </data>
+  <data name="mainLoadError1" xml:space="preserve">
+    <value>Nie znaleziono pliku: '</value>
+  </data>
+  <data name="mainLoadError2" xml:space="preserve">
+    <value>Rozszerzeniem adresu URL nie jest 'svg' lub 'dxf'\r\nSpróbuj mimo to zaimportować SVG, ale bez ustawiania listy 'Ostatnie pliki'.</value>
+  </data>
+  <data name="mainLoadError3" xml:space="preserve">
+    <value>Rozszerzenie pliku nie jest obsługiwane '</value>
+  </data>
+  <data name="mainParseError" xml:space="preserve">
+    <value>Nieprawidłowy numer</value>
+  </data>
+  <data name="mainParseError1" xml:space="preserve">
+    <value>Nieprawidłowy numer, ustaw linię na 0</value>
+  </data>
+  <data name="mainPauseStream" xml:space="preserve">
+    <value>Wstrzymano przesyłanie strumieniowe - naciśnij 'Rozpocznij'</value>
+  </data>
+  <data name="mainPauseStream1" xml:space="preserve">
+    <value>Ostatnie zadanie zostało wstrzymane w wierszu</value>
+  </data>
+  <data name="mainPauseStream2" xml:space="preserve">
+    <value>Czy chcesz kontynuować pracę?</value>
   </data>
   <data name="mainProgress" xml:space="preserve">
     <value>Postęp</value>
@@ -189,14 +189,14 @@
   <data name="mainQuit" xml:space="preserve">
     <value>Wyjśc z GRBL-Plotter?</value>
   </data>
-  <data name="mainSimuSpeed" xml:space="preserve">
-    <value>Prędkość</value>
-  </data>
   <data name="mainSimuStart" xml:space="preserve">
     <value>Rozpocznij symulację ścieżki</value>
   </data>
   <data name="mainSimuStop" xml:space="preserve">
     <value>Zatrzymaj symulację ścieżki</value>
+  </data>
+  <data name="mainStreamingActive" xml:space="preserve">
+    <value>Streaming jest nadal aktywny - naciśnij Stop i spróbuj ponownie.</value>
   </data>
   <data name="mainToolChange" xml:space="preserve">
     <value>Zmiana pióra / narzędzia!</value>
@@ -245,45 +245,6 @@
   </data>
   <data name="serialOpen" xml:space="preserve">
     <value>Otwórz</value>
-  </data>
-  <data name="mainLimits1" xml:space="preserve">
-    <value>Następny ruch przekroczy limity urządzenia!\r</value>
-  </data>
-  <data name="mainLimits2" xml:space="preserve">
-    <value>\r\n Naciśnij przycisk "Ok", aby kontynuować ruch.</value>
-  </data>
-  <data name="mainLimits3" xml:space="preserve">
-    <value>Wymiar grafiki przekracza wymiar urządzenia!\r\nTransformacja jest zalecana, aby uniknąć uszkodzenia urządzenia!</value>
-  </data>
-  <data name="mainLoadError" xml:space="preserve">
-    <value>Przesyłanie strumieniowe musi zostać zatrzymane przed załadowaniem nowego pliku</value>
-  </data>
-  <data name="mainLoadError1" xml:space="preserve">
-    <value>Nie znaleziono pliku: '</value>
-  </data>
-  <data name="mainLoadError2" xml:space="preserve">
-    <value>Rozszerzeniem adresu URL nie jest 'svg' lub 'dxf'\r\nSpróbuj mimo to zaimportować SVG, ale bez ustawiania listy 'Ostatnie pliki'.</value>
-  </data>
-  <data name="mainLoadError3" xml:space="preserve">
-    <value>Rozszerzenie pliku nie jest obsługiwane '</value>
-  </data>
-  <data name="mainParseError" xml:space="preserve">
-    <value>Nieprawidłowy numer</value>
-  </data>
-  <data name="mainParseError1" xml:space="preserve">
-    <value>Nieprawidłowy numer, ustaw linię na 0</value>
-  </data>
-  <data name="mainPauseStream" xml:space="preserve">
-    <value>Wstrzymano przesyłanie strumieniowe - naciśnij 'Rozpocznij'</value>
-  </data>
-  <data name="mainPauseStream1" xml:space="preserve">
-    <value>Ostatnie zadanie zostało wstrzymane w wierszu</value>
-  </data>
-  <data name="mainPauseStream2" xml:space="preserve">
-    <value>Czy chcesz kontynuować pracę?</value>
-  </data>
-  <data name="mainStreamingActive" xml:space="preserve">
-    <value>Streaming jest nadal aktywny - naciśnij Stop i spróbuj ponownie.</value>
   </data>
   <data name="statusStripeCheckCOM" xml:space="preserve">
     <value>Sprawdź okno COM, aby uzyskać więcej informacji</value>
@@ -370,20 +331,8 @@ Kontynuacja po ponownym uruchomieniu programu jest możliwa.</value>
   <data name="cameraDistortionMarker" xml:space="preserve">
     <value>Znacznik zniekształcenia</value>
   </data>
-  <data name="probing" xml:space="preserve">
-    <value>sondowanie</value>
-  </data>
-  <data name="scan" xml:space="preserve">
-    <value>skanowanie</value>
-  </data>
-  <data name="heightScan" xml:space="preserve">
-    <value>skanowanie wys.</value>
-  </data>
   <data name="useCaseInfo" xml:space="preserve">
     <value>Przypadek użycia to wstępnie skonfigurowana konfiguracja umożliwiająca dostosowanie ustawień dla określonej maszyny i/lub aplikacji. Ustawienia wybranego i zastosowanego przypadku użycia pozostaje również po zaimportowaniu grafiki. Przypadek użycia musi być przechowywany w folderze \data\usecases, aby był dostępny.</value>
-  </data>
-  <data name="useCaseInfo2" xml:space="preserve">
-    <value>Informacja</value>
   </data>
   <data name="useCaseHeader1" xml:space="preserve">
     <value>Użyj bieżących ustawień (ostatnio załadowane: '{0}')</value>
@@ -471,9 +420,6 @@ Możliwe obejście: spróbuj przekonwertować obiekt na ścieżkę.</value>
     <value>Znaleziono nieobsługiwany atrybut SVG-XML.
 Obraz wynikowy może wyglądać inaczej niż oczekiwano.
 Możliwe obejście: spróbuj przekonwertować obiekt na ścieżkę.</value>
-  </data>
-  <data name="mainInfoWaitIdle" xml:space="preserve">
-    <value>Poczekaj na IDLE, a następnie wstrzymaj (</value>
   </data>
   <data name="importMessageTitle" xml:space="preserve">
     <value>importować informacje</value>
@@ -693,5 +639,8 @@ Możliwe obejście: spróbuj przekonwertować obiekt na ścieżkę.</value>
   </data>
   <data name="loadMessageReload" xml:space="preserve">
     <value>Przeładować</value>
+  </data>
+  <data name="mainInfoToolChange" xml:space="preserve">
+    <value>Zmiana narzędzia...</value>
   </data>
 </root>

@@ -1768,7 +1768,8 @@ namespace GrblPlotter
             if (gcodeTangentialEnable)
                 header_end += string.Format("({0} Axis=\"{1}\" UnitsFullTurn=\"{2}\"/>)\r\n", XmlMarker.TangentialAxis, gcodeTangentialName, Properties.Settings.Default.importGCTangentialTurn);
 
-            string[] commands = Properties.Settings.Default.importGCHeader.Split(';');
+            string pattern = @"\r?\n|\\n|;";
+            string[] commands = Regex.Split(Properties.Settings.Default.importGCHeader, pattern);
             foreach (string cmd in commands)
                 if (cmd.Length > 1)
                 { header_end += string.Format("{0} (Setup - GCode-Header)\r\n", cmd.Trim()); gcodeLines++; }
@@ -1844,7 +1845,7 @@ namespace GrblPlotter
                 TimeSpan t = TimeSpan.FromSeconds(gcodeTime * 60);
                 header += string.Format("( Duration ca.      : {0:D2}:{1:D2}:{2:D2} h:m:s )\r\n", t.Hours, t.Minutes, t.Seconds);
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 header += string.Format("( Duration ca.      : {0:0.0} min. )\r\n", gcodeTime);
             }
@@ -1887,15 +1888,11 @@ namespace GrblPlotter
             if (gcodeToolChange && Properties.Settings.Default.ctrlToolChangeEmpty)
             { footer += string.Format("T{0} M{1} (Remove tool)\r\n", FrmtCode((int)Properties.Settings.Default.ctrlToolChangeEmptyNr), FrmtCode(6)); }
 
-            string[] commands = Properties.Settings.Default.importGCFooter.Split(';');
+            string pattern = @"\r?\n|\\n|;";
+            string[] commands = Regex.Split(Properties.Settings.Default.importGCFooter, pattern);
             foreach (string cmd in commands)
                 if (cmd.Length > 1)
                 { footer += string.Format("{0} (Setup - GCode-Footer)\r\n", cmd.Trim()); }
-
-            if (Properties.Settings.Default.importGCPWMEnable && Properties.Settings.Default.importGCPWMSkipM30)
-            { footer += "M30 (SKIP M30)\r\n"; }
-            else
-                footer += "M30\r\n";
 
             return footer + gcodeSubroutine;
         }

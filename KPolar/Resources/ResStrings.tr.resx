@@ -117,44 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="grblAlarm" xml:space="preserve">
-    <value>Alarm</value>
-  </data>
-  <data name="grblCheck" xml:space="preserve">
-    <value>Kontrol etmek</value>
-  </data>
-  <data name="grblDoor" xml:space="preserve">
-    <value>Kapı</value>
-  </data>
-  <data name="grblHold" xml:space="preserve">
-    <value>Tutmak</value>
-  </data>
-  <data name="grblHome" xml:space="preserve">
-    <value>Ev</value>
-  </data>
-  <data name="grblIdle" xml:space="preserve">
-    <value>Boşta</value>
-  </data>
-  <data name="grblJog" xml:space="preserve">
-    <value>Koşu</value>
-  </data>
-  <data name="grblProbe" xml:space="preserve">
-    <value>İncelemek, bulmak</value>
-  </data>
-  <data name="grblRun" xml:space="preserve">
-    <value>Koşmak</value>
-  </data>
-  <data name="grblSleep" xml:space="preserve">
-    <value>Uyumak</value>
-  </data>
-  <data name="grblNotConnected" xml:space="preserve">
-    <value>grbl denetleyicisi bağlı değil!\r\nİstenen eylem gerçekleştirilemiyor!</value>
-  </data>
   <data name="mainAttention" xml:space="preserve">
     <value>Dikkat</value>
-  </data>
-  <data name="mainHelpLanguage" xml:space="preserve">
-    <value>Çeviriyi geliştirmekten çekinmeyin</value>
   </data>
   <data name="mainHotkeyError" xml:space="preserve">
     <value>'hotkeys.xml' dosyası bulunamadı, kısayol tuşu ayarlanmadı!</value>
@@ -177,41 +141,11 @@
   <data name="mainInfoFinishSend" xml:space="preserve">
     <value>G Kodu göndermeyi bitir</value>
   </data>
-  <data name="mainInfoKill" xml:space="preserve">
-    <value>Devam etmek için 'Alarmı Sonlandır'a basın ('$X')</value>
-  </data>
-  <data name="mainInfoLaserModeOff" xml:space="preserve">
-    <value>Lazer Modu etkin değil $32=0</value>
-  </data>
-  <data name="mainInfoLaserModeOn" xml:space="preserve">
-    <value>Lazer Modu etkin $32=1</value>
-  </data>
-  <data name="mainInfoPause" xml:space="preserve">
-    <value>Akışı duraklatın - oynat düğmesine basın (</value>
-  </data>
-  <data name="mainInfoProbing" xml:space="preserve">
-    <value>Sondaj</value>
-  </data>
-  <data name="mainInfoResume" xml:space="preserve">
-    <value>Devam etmek için 'Devam Et'e basın</value>
-  </data>
   <data name="mainInfoSendCode" xml:space="preserve">
     <value>G Kodu Gönder</value>
   </data>
-  <data name="mainInfoStopStream" xml:space="preserve">
-    <value>Akışı DURDUR (</value>
-  </data>
-  <data name="mainInfoStopStream2" xml:space="preserve">
-    <value>Akışı DURDUR ( Hat</value>
-  </data>
-  <data name="mainInfoToolChange" xml:space="preserve">
-    <value>Alet değişimi...</value>
-  </data>
   <data name="mainInfoUndo" xml:space="preserve">
     <value>Son işlemi geri al</value>
-  </data>
-  <data name="mainInfoWaitIdle" xml:space="preserve">
-    <value>IDLE için bekleyin, ardından duraklatın (</value>
   </data>
   <data name="mainLimits1" xml:space="preserve">
     <value>Bir sonraki hamle makine sınırlarını aşacak!\r</value>
@@ -249,17 +183,11 @@
   <data name="mainPauseStream2" xml:space="preserve">
     <value>İşe devam etmek istiyor musun?</value>
   </data>
-  <data name="mainProblem" xml:space="preserve">
-    <value>Sorun</value>
-  </data>
   <data name="mainProgress" xml:space="preserve">
     <value>İlerlemek</value>
   </data>
   <data name="mainQuit" xml:space="preserve">
     <value>GRBL-Plotter'dan çıkılsın mı?</value>
-  </data>
-  <data name="mainSimuSpeed" xml:space="preserve">
-    <value>Hız</value>
   </data>
   <data name="mainSimuStart" xml:space="preserve">
     <value>Yol simülasyonunu başlat</value>
@@ -402,20 +330,8 @@
   <data name="cameraDistortionMarker" xml:space="preserve">
     <value>Bozulma işaretçisi</value>
   </data>
-  <data name="probing" xml:space="preserve">
-    <value>araştırmak</value>
-  </data>
-  <data name="scan" xml:space="preserve">
-    <value>taramak</value>
-  </data>
-  <data name="heightScan" xml:space="preserve">
-    <value>yükseklik taraması</value>
-  </data>
   <data name="useCaseInfo" xml:space="preserve">
     <value>Kullanım senaryosu, belirli bir makine ve/veya uygulama için ayarları yapmak üzere önceden ayarlanmış bir kurulumdur.\r\nSeçilen ve uygulanan kullanım senaryosunun ayarları, grafiklerin içe aktarılmasından sonra da korunur.\r\nBir kullanım senaryosu gerekir erişilebilir olması için \data\usecases içinde saklanmalıdır.\r\nAyrıca dışa aktarılan makine ayarları ve alt kümeleri kullanılabilir.</value>
-  </data>
-  <data name="useCaseInfo2" xml:space="preserve">
-    <value>Bilgi</value>
   </data>
   <data name="useCaseHeader1" xml:space="preserve">
     <value>Mevcut ayarları kullan (son yüklenen: '{0}')</value>
@@ -725,5 +641,8 @@ Olası geçici çözüm: nesneyi yola dönüştürmeyi deneyin.</value>
   </data>
   <data name="loadMessageReload" xml:space="preserve">
     <value>Tekrar yükle</value>
+  </data>
+  <data name="mainInfoToolChange" xml:space="preserve">
+    <value>Alet değişimi...</value>
   </data>
 </root>

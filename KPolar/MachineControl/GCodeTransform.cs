@@ -757,7 +757,7 @@ namespace GrblPlotter
             if (lastFigureNumbers.Count == 0)
                 lastFigureNumbers.Add(lastFigureNumber);
 
-            int check = 0;
+            //int check = 0;
             foreach (GcodeByLine gcline in gcodeList)
             {
                 if ((gcline.x != null) || (gcline.y != null))

@@ -117,44 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="grblAlarm" xml:space="preserve">
-    <value>Poplach</value>
-  </data>
-  <data name="grblCheck" xml:space="preserve">
-    <value>Šek</value>
-  </data>
-  <data name="grblDoor" xml:space="preserve">
-    <value>Dveře</value>
-  </data>
-  <data name="grblHold" xml:space="preserve">
-    <value>Držet</value>
-  </data>
-  <data name="grblHome" xml:space="preserve">
-    <value>Domov</value>
-  </data>
-  <data name="grblIdle" xml:space="preserve">
-    <value>Líný</value>
-  </data>
-  <data name="grblJog" xml:space="preserve">
-    <value>Jog</value>
-  </data>
-  <data name="grblProbe" xml:space="preserve">
-    <value>Sonda</value>
-  </data>
-  <data name="grblRun" xml:space="preserve">
-    <value>Běh</value>
-  </data>
-  <data name="grblSleep" xml:space="preserve">
-    <value>Spát</value>
-  </data>
-  <data name="grblNotConnected" xml:space="preserve">
-    <value>Ovladač grbl není připojen!\r\nNelze provést požadovanou akci!</value>
-  </data>
   <data name="mainAttention" xml:space="preserve">
     <value>Pozornost</value>
-  </data>
-  <data name="mainHelpLanguage" xml:space="preserve">
-    <value>Klidně překlad vylepšete</value>
   </data>
   <data name="mainHotkeyError" xml:space="preserve">
     <value>Soubor 'hotkeys.xml' nebyl nalezen, nejsou nastaveny žádné klávesové zkratky!</value>
@@ -177,41 +141,11 @@
   <data name="mainInfoFinishSend" xml:space="preserve">
     <value>Dokončete odesílání G-kódu</value>
   </data>
-  <data name="mainInfoKill" xml:space="preserve">
-    <value>Pokračujte stisknutím 'Kill Alarm' ('$X')</value>
-  </data>
-  <data name="mainInfoLaserModeOff" xml:space="preserve">
-    <value>Laserový režim není aktivní $32=0</value>
-  </data>
-  <data name="mainInfoLaserModeOn" xml:space="preserve">
-    <value>Aktivní laserový režim $32=1</value>
-  </data>
-  <data name="mainInfoPause" xml:space="preserve">
-    <value>Pozastavit streamování - stiskněte tlačítko přehrávání (</value>
-  </data>
-  <data name="mainInfoProbing" xml:space="preserve">
-    <value>Sondování</value>
-  </data>
-  <data name="mainInfoResume" xml:space="preserve">
-    <value>Pokračujte stisknutím tlačítka Obnovit</value>
-  </data>
   <data name="mainInfoSendCode" xml:space="preserve">
     <value>Odeslat G-Code</value>
   </data>
-  <data name="mainInfoStopStream" xml:space="preserve">
-    <value>ZASTAVIT streamování (</value>
-  </data>
-  <data name="mainInfoStopStream2" xml:space="preserve">
-    <value>ZASTAVIT streamování ( řádek</value>
-  </data>
-  <data name="mainInfoToolChange" xml:space="preserve">
-    <value>Výměna nástroje...</value>
-  </data>
   <data name="mainInfoUndo" xml:space="preserve">
     <value>Vrátit zpět poslední akci</value>
-  </data>
-  <data name="mainInfoWaitIdle" xml:space="preserve">
-    <value>Počkejte na NEČINNOU, poté pauzu (</value>
   </data>
   <data name="mainLimits1" xml:space="preserve">
     <value>Další pohyb překročí limity stroje!\r</value>
@@ -249,17 +183,11 @@
   <data name="mainPauseStream2" xml:space="preserve">
     <value>Chcete v práci pokračovat?</value>
   </data>
-  <data name="mainProblem" xml:space="preserve">
-    <value>Problém</value>
-  </data>
   <data name="mainProgress" xml:space="preserve">
     <value>Pokrok</value>
   </data>
   <data name="mainQuit" xml:space="preserve">
     <value>Ukončit GRBL-Plotter?</value>
-  </data>
-  <data name="mainSimuSpeed" xml:space="preserve">
-    <value>Rychlost</value>
   </data>
   <data name="mainSimuStart" xml:space="preserve">
     <value>Spusťte simulaci cesty</value>
@@ -404,9 +332,6 @@
   </data>
   <data name="useCaseInfo" xml:space="preserve">
     <value>Případ užití je přednastavené nastavení pro úpravu nastavení pro konkrétní stroj a/nebo aplikaci.\r\nNastavení vybraného a použitého případu použití také zůstane po importu grafiky.\r\nPotřeby použití ukládat do \data\usecases, aby byly přístupné.\r\nLze použít také exportovaná nastavení stroje a jejich podmnožiny.</value>
-  </data>
-  <data name="useCaseInfo2" xml:space="preserve">
-    <value>Informace</value>
   </data>
   <data name="useCaseHeader1" xml:space="preserve">
     <value>Použít aktuální nastavení (naposledy načteno: '{0}')</value>
@@ -597,6 +522,9 @@ Možné řešení: zkuste převést objekt na cestu.</value>
   <data name="importMessagePUDPenUp" xml:space="preserve">
     <value>pero nahoru</value>
   </data>
+  <data name="importMessagePUDPenDown" xml:space="preserve">
+    <value>perem dolů</value>
+  </data>
   <data name="importMessageOption1" xml:space="preserve">
     <value>Výklad cesty:</value>
   </data>
@@ -641,9 +569,6 @@ Možné řešení: zkuste převést objekt na cestu.</value>
   </data>
   <data name="importMessageOptionWireBender" xml:space="preserve">
     <value>ohýbačka drátu</value>
-  </data>
-  <data name="importMessagePUDPenDown" xml:space="preserve">
-    <value>perem dolů</value>
   </data>
   <data name="importMessageOption1Link" xml:space="preserve">
     <value>Možné interpretace cest</value>
@@ -713,5 +638,8 @@ Možné řešení: zkuste převést objekt na cestu.</value>
   </data>
   <data name="loadMessageReload" xml:space="preserve">
     <value>Znovu načíst</value>
+  </data>
+  <data name="mainInfoToolChange" xml:space="preserve">
+    <value>Výměna nástroje...</value>
   </data>
 </root>

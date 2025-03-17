@@ -120,7 +120,7 @@ namespace GrblPlotter
 
         #region MAIN-MENU FILE
         // open a file via dialog
-        private void BtnOpenFile_Click(object sender, EventArgs e)
+        private void OpenFile_event(object sender, EventArgs e)
         {
             openFileDialog1.FileName = "";
             openFileDialog1.Filter = loadFilter;
@@ -356,7 +356,7 @@ namespace GrblPlotter
             StatusStripClear(0);
             Update_GCode_Depending_Controls();  // lbDimension.Text && Tranfrom-menu update GUI controls
             timerUpdateControlSource = "newCodeEnd";
-            UpdateControlEnables();                                   	// update control enable 
+            
             
             this.Cursor = Cursors.Default;
             pictureBox1.Cursor = Cursors.Cross;
@@ -609,7 +609,7 @@ namespace GrblPlotter
                 MyIni.ReadAll();    // ReadImport();
                 UpdateIniVariables();
                 timerUpdateControlSource = "loadFile";
-                UpdateControlEnables();
+               
                 UpdateWholeApplication();
                 StatusStripSet(2, "INI File '" + fileName + "' loaded", Color.Lime);
                 return true;
@@ -904,7 +904,7 @@ namespace GrblPlotter
                 MyIni.ReadAll();    // ReadImport();
                 UpdateIniVariables();
                 timerUpdateControlSource = "tBURL_TextChanged";
-                UpdateControlEnables();
+                
                 UpdateWholeApplication();
                 StatusStripSet(2, "INI File '" + tBURL.Text + "' loaded", Color.Lime);
                 return;
@@ -1340,8 +1340,7 @@ namespace GrblPlotter
         public void ReStartConvertFile(object sender, EventArgs e, bool wantGraphic, int index)
         {
             Logger.Info("●●●●● ReStartConvertFile SourceType:{0}  index:{1}  wantGraphic:{2}   lastLoadFile:{3}", Graphic.graphicInformation.SourceType, index, wantGraphic, lastLoadFile);
-            if (!isStreaming)
-            {
+           
                 this.Cursor = Cursors.WaitCursor;
                 if (wantGraphic && lastLoadFile.EndsWith(fileLastProcessed + ".nc") && (MRUlist.Count > 1))     // safety copy during streaming
                 {
@@ -1355,11 +1354,7 @@ namespace GrblPlotter
                     LoadFile(Datapath.MakeAbsolutePath(MRUlist[index]));
                 }
                 this.Cursor = Cursors.Default;
-            }
-            else
-            {
-                ShowSimpleMessageForm(Localization.GetString("codeMessage_attention"), Localization.GetString("loadMessageStreaming") + "<br><br>" + Localization.GetString("mainLoadError"), 3);
-            }
+            
         }
         public void MoveToPickup(object sender, EventArgs e)   // event from setup form
         {
@@ -1674,7 +1669,7 @@ namespace GrblPlotter
                 SaveRecentFile(tbFile.Text);
                 this.Text = appName + " | File: " + tbFile.Text;
                
-                UpdateControlEnables();
+               
 
                 bool messageShown = false;
 
@@ -1712,12 +1707,9 @@ namespace GrblPlotter
                                 if (result == DialogResult.Yes)
                                 {
                                     LoadStreamingStatus(ref status, ref message, true);                            //do something
-                                    timerUpdateControlSource = "loadGcode";
-                                    UpdateControlEnables(); // true
+                                    
                                     btnStreamStart.Image = Properties.Resources.btn_play;
-                                    isStreamingPause = true;
-                                   
-                                    signalPlay = 1;
+                                    
                                     
                                 }
                             }
@@ -2149,19 +2141,7 @@ namespace GrblPlotter
                 }
       
 
-                if (keyDown)
-                {
-
-                    if (action.StartsWith("Stream"))
-                    {
-                        if (action.Contains("Start")) { StartStreaming(0, fCTBCode.LinesCount - 1); }// btnStreamStart.PerformClick(); }
-                        //if (action.Contains("Stop")) { StopStreaming(true); }// btnStreamStop.PerformClick(); }
-                        
-                        return true;
-                    }
-                    
-                    
-                }
+                
             }
             return false;
         }
@@ -2268,8 +2248,6 @@ namespace GrblPlotter
                         fCTBCodeClickedLineNow = codeLine;
                         FctbSetBookmark();
                         
-                        if (parserState != "")
-                            StartStreaming(codeLine, fCTBCode.LinesCount - 1);
                     }
                     return codeLine;
                 }
@@ -2423,7 +2401,7 @@ namespace GrblPlotter
             _message_form.Show();
             _message_form?.ShowMessage(500, 300, headline, HtmlMessage, delay);   // ShowSimpleMessageForm
             _message_form.DontClose = false;
-            delayedMessageFormClose = (uint)delay * 2;            // close form after 10x 500 ms				
+            			
         }
 
     }

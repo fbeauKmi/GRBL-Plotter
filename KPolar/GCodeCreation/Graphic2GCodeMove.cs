@@ -108,7 +108,7 @@ namespace GrblPlotter
 
             double delta = Fdistance(lastx, lasty, mx, my);
 
-            double x;
+           
 
             if (applyFeed && (gnr > 0))
             {

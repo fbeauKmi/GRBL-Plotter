@@ -386,12 +386,16 @@ namespace GrblPlotter
             matrix.Scale(1, -1);
 
             RectangleF pathRect1 = new RectangleF(x1, y1, rx, ry);
+            
             RectangleF pathRect2 = new RectangleF(x1 - extend, y1 - extend, rx + 2 * extend, ry + 2 * extend);
+
+            RectangleF pathRect3 = new RectangleF(-10,-10, 20, 20);
 
             pathMachineLimit.Reset();
             pathMachineLimit.StartFigure();
-            pathMachineLimit.AddRectangle(pathRect1);
+            pathMachineLimit.AddEllipse(pathRect1);
             pathMachineLimit.AddRectangle(pathRect2);
+            pathMachineLimit.AddEllipse(pathRect3);
 
             if (Properties.Settings.Default.machineLimitsShow)
             {
@@ -955,15 +959,21 @@ namespace GrblPlotter
             if (!Properties.Settings.Default.importUnitmm || (modal.unitsMode == 20))
             { roundTo = 0.25; }
 
-            if ((xyzSize.dimx == 0) && (xyzSize.dimy == 0))
-            {
-                xyzSize.SetDimensionXY(G0Size.minx, G0Size.miny);
-                xyzSize.SetDimensionXY(G0Size.maxx, G0Size.maxy);
-                Logger.Info("xyz-Dimension=0, use G0-Dimension dim-x {0} dim-y {1}", G0Size.dimx, G0Size.dimy);
-            }
+            xyzSize.SetDimensionXY(-55, -55);
+            xyzSize.SetDimensionXY(55, 55);
 
-            if ((xyzSize.miny == 0) && (xyzSize.maxy == 0))
-            { xyzSize.miny = -1; xyzSize.maxy = 1; }
+
+            //if ((xyzSize.dimx == 0) && (xyzSize.dimy == 0))
+            //{
+            //    //xyzSize.SetDimensionXY(G0Size.minx, G0Size.miny);
+            //    //xyzSize.SetDimensionXY(G0Size.maxx, G0Size.maxy);
+            //    xyzSize.SetDimensionXY(-65, -65);
+            //    xyzSize.SetDimensionXY(65, 65);
+            //    Logger.Info("xyz-Dimension=0, use G0-Dimension dim-x {0} dim-y {1}", G0Size.dimx, G0Size.dimy);
+            //}
+
+            //if ((xyzSize.miny == 0) && (xyzSize.maxy == 0))
+            //{ xyzSize.miny = -1; xyzSize.maxy = 1; }
 
             drawingSize.minX = (float)(Math.Floor(xyzSize.minx * extend / roundTo) * roundTo);                  // extend dimensions
             if (drawingSize.minX >= 0) { drawingSize.minX = (float)-roundTo; }                                          // be sure to show 0;0 position

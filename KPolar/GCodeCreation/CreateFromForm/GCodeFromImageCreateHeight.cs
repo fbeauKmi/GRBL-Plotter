@@ -76,17 +76,17 @@ namespace GrblPlotter
             }
             //     int pixelCount = resultImage.Width * resultImage.Height;
             //     int pixelProcessed = 0;
-            int percentDone;
+            //int percentDone;
 
-            int pixelPosY;                  			// top/botom pixel
-            int pixelPosX;                  			// Left/right pixel
+            //int pixelPosY;                  			// top/botom pixel
+            //int pixelPosX;                  			// Left/right pixel
             bool useZnotS = RbStartGrayZ.Checked;       // calculate Z-value or S-value
                                                         //       bool useLaserOnly = CbLaserOnly.Checked;
                                                         //     bool backAndForth = !cBOnlyLeftToRight.Checked;
             bool relative = cBCompress.Checked;         // true;
                                                         //     bool firstValue;//, firstLine=true;
 
-            int pixelValLast, pixelValNow, pixelValNext;    // gray-values at pixel pos
+            //int pixelValLast, pixelValNow, pixelValNext;    // gray-values at pixel pos
             cncCoordLastX = cncCoordX = 0;
             cncCoordLastY = cncCoordY = 0;
 

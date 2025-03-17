@@ -81,7 +81,7 @@ namespace GrblPlotter
             logList.Clear();
             bool isObjectLast, isObjectCur;
             abortCount = Width * Height;        // maximum pixels to trace
-            int cnt = 1;
+            
 
         //    for (int y = Height-1; y >= 0; y--)
             for (int y = 0; y < Height; y++)

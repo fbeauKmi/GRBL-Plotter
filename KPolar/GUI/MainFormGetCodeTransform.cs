@@ -100,15 +100,13 @@ namespace GrblPlotter
 
         private void GetGCodeFromHeightMap(object sender, EventArgs e)
         {
-            if (!isStreaming)
-            {
-                
+              
                 VisuGCode.ClearHeightMap();
                 NewCodeStart();     // GetGCodeFromHeightMap
                 SetFctbCodeText(_heightmap_form.scanCode.ToString().Replace(',', '.'));
                 SetLastLoadedFile("from height map", "");
                 NewCodeEnd();       // GetGCodeFromHeightMap
-            }
+            
         }
 
         #endregion
@@ -255,28 +253,23 @@ namespace GrblPlotter
 
         private void GetGCodeForWireCutter(object sender, EventArgs e)
         {
-            if (!isStreaming)
+            
+            string tmpCode = "(no gcode)";
+            if (Graphic.GCode != null)
             {
-                string tmpCode = "(no gcode)";
-                if (Graphic.GCode != null)
-                {
-                    tmpCode = Graphic.GCode.ToString();
-                }
-                InsertCodeFromForm(tmpCode, "for wirecutter", _wireCutter_form.PathBackground);
-         //       Properties.Settings.Default.counterImportText += 1;
-                string source = "Iwi";
-                if (Properties.Settings.Default.fromFormInsertEnable)
-                    source = "I" + source;
-                AfterImport(source);
+                tmpCode = Graphic.GCode.ToString();
             }
-            else
-                MessageBox.Show(Localization.GetString("mainStreamingActive"), Localization.GetString("mainAttention"), MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            InsertCodeFromForm(tmpCode, "for wirecutter", _wireCutter_form.PathBackground);
+        //       Properties.Settings.Default.counterImportText += 1;
+            string source = "Iwi";
+            if (Properties.Settings.Default.fromFormInsertEnable)
+                source = "I" + source;
+            AfterImport(source);
+            
         }
 
         private void GetGCodeFromText(object sender, EventArgs e)
         {
-            if (!isStreaming)
-            {
                 string tmpCode = "(no gcode)";
                 if (Graphic.GCode != null)
                 {
@@ -288,16 +281,13 @@ namespace GrblPlotter
                 if (Properties.Settings.Default.fromFormInsertEnable)
                     source = "I" + source;
                 AfterImport(source);
-            }
-            else
-                MessageBox.Show(Localization.GetString("mainStreamingActive"), Localization.GetString("mainAttention"), MessageBoxButtons.OK, MessageBoxIcon.Stop);
+          
         }
 
         private void GetGCodeFromBarcode(object sender, EventArgs e)
         {
             Logger.Info("▀▀▀▀▀▀ GetGCodeFromBarcode");
-            if (!isStreaming)
-            {
+            
                 string tmpCode = "(no gcode)";
                 if (Graphic.GCode != null)
                 {
@@ -309,9 +299,7 @@ namespace GrblPlotter
                 if (Properties.Settings.Default.fromFormInsertEnable)
                     source = "I" + source;
                 AfterImport(source);
-            }
-            else
-                MessageBox.Show(Localization.GetString("mainStreamingActive"));
+           
 
             Cursor.Current = Cursors.Default;
         }
@@ -319,8 +307,7 @@ namespace GrblPlotter
         private void GetGCodeFromImage(object sender, EventArgs e)
         {
             Logger.Info("▀▀▀▀▀▀ GetGCodeFromImage");
-            if (!isStreaming)
-            {
+           
                 if ((_image_form != null) && (!String.IsNullOrEmpty(_image_form.ImageGCode)))
                 {
                     
@@ -340,16 +327,13 @@ namespace GrblPlotter
                 }
                 else
                 { Logger.Error("GetGCodeFromImage form is already closed or string is empty"); }
-            }
-            else
-                MessageBox.Show(Localization.GetString("mainStreamingActive"));
+            
         }
 
         private void GetGCodeFromShape(object sender, EventArgs e)
         {
             Logger.Info("▀▀▀▀▀▀ GetGCodeFromShape");
-            if (!isStreaming)
-            {
+            
                 if (_shape_form != null)
                 {
                     InsertCodeFromForm(_shape_form.ShapeGCode, "from shape", _shape_form.PathBackground);
@@ -359,30 +343,24 @@ namespace GrblPlotter
                         source = "I" + source;
                     AfterImport(source);
                 }
-            }
-            else
-                MessageBox.Show(Localization.GetString("mainStreamingActive"));
+            
         }
 
         private void GetGCodeJogCreator(object sender, EventArgs e)
         {
             Logger.Info("▀▀▀▀▀▀ GetGCodeJogCreator");
-            if (!isStreaming)
-            {
+            
                 if (_jogPathCreator_form != null)
                 {
                     SendCommands(_jogPathCreator_form.JogGCode, true);
                 }
-            }
-            else
-                MessageBox.Show(Localization.GetString("mainStreamingActive"));
+            
         }
 
         private void GetGCodeJogCreator2(object sender, EventArgs e)
         {
             Logger.Info("▀▀▀▀▀▀ GetGCodeJogCreator2");
-            if (!isStreaming)
-            {
+            
                 if (_jogPathCreator_form != null)
                 {
                     
@@ -393,9 +371,7 @@ namespace GrblPlotter
                     NewCodeEnd();       // GetGCodeJogCreator2
                     ShowImportOptions();
                 }
-            }
-            else
-                MessageBox.Show(Localization.GetString("mainStreamingActive"));
+           
         }
 
         #endregion
@@ -499,7 +475,7 @@ namespace GrblPlotter
             pictureBox1.Invalidate();                                   // resfresh view
             Update_GCode_Depending_Controls();                          // update GUI controls
             timerUpdateControlSource = "transformEnd";
-            UpdateControlEnables();                                     // update control enable 
+             
             EnableCmsCodeBlocks(VisuGCode.CodeBlocksAvailable());
             this.Cursor = Cursors.Default;
             manualEdit = false;

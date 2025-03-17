@@ -76,6 +76,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Handlers;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Configuration;
 using System.Threading;
@@ -96,7 +97,7 @@ namespace GrblPlotter
         private const string appName = "KPolar labeller";
         private const string fileLastProcessed = "lastProcessed";
         private XyzPoint posProbe = new XyzPoint(0, 0, 0);
-        private double? alternateZ = null;
+       
         internal bool ResetDetected = false;
        
 
@@ -104,7 +105,7 @@ namespace GrblPlotter
         private string ctrl4thName = "A";
         private string lastLoadSource = "Nothing loaded";
         private string lastLoadFile = "Nothing loaded";
-        private int coordinateG = 54;
+       
         private readonly string zeroCmd = "G10 L20 P0";      // "G92"
         private ulong mainTimerCount = 0;
 
@@ -197,12 +198,6 @@ namespace GrblPlotter
             LoadExtensionList();			// fill menu with available extension-scripts
             CmsPicBoxEnable(false);			// no graphic - no tasks
 
-
-            
-
-          
-            GbJoggingLarge = false;
-
             lbDimension.Select(0, 0);       // unselect text Dimension box
 
             try
@@ -242,28 +237,6 @@ namespace GrblPlotter
             if (_splashscreen != null)          // 2nd occurance, hide splashscreen windows
             {
                 this.Opacity = 100;
-
-                //if (_serial_form == null)
-                //{
-                //    if (Properties.Settings.Default.ctrlUseSerial2)
-                //    {
-                //        _serial_form2 = new ControlSerialForm("COM Tool changer", 2);
-                //        if (showFormInFront) _serial_form2.Show(this);
-                //        else _serial_form2.Show();
-                //    }
-                //    if (Properties.Settings.Default.ctrlUseSerial3)
-                //    {
-                //        _serial_form3 = new SimpleSerialForm();// "COM simple", 3);
-                //        if (showFormInFront) _serial_form3.Show(this);
-                //        else _serial_form3.Show();
-                //    }
-                //    _serial_form = new ControlSerialForm("COM CNC", 1, _serial_form2, _serial_form3);
-                //    if (showFormInFront) _serial_form.Show(this);
-                //    else _serial_form.Show();
-
-                //    _serial_form.RaisePosEvent += OnRaisePosEvent;
-                //    _serial_form.RaiseStreamEvent += OnRaiseStreamEvent;
-                //}
 
                 if (_splashscreen != null)
                 {
@@ -306,10 +279,8 @@ namespace GrblPlotter
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {   // Note all other forms will be closed, before reaching following code...
             Logger.Info("###### FormClosing ");
-            if (isStreaming)
-                EventCollector.SetStreaming("CLOST");
-            else
-                EventCollector.SetStreaming("CLOSE");
+           
+            EventCollector.SetStreaming("CLOSE");
 
             loadTimer.Stop();
             Properties.Settings.Default.mainFormWinState = WindowState;
@@ -398,50 +369,13 @@ namespace GrblPlotter
                 timerUpdateControls = false;
                 Logger.Trace(culture, "MainTimer_Tick - timerUpdateControls {0}", timerUpdateControlSource);
                 UpdateWholeApplication();
-                UpdateControlEnables();       // enable controls if serial connected
+                
                                               //                resizeJoystick();       // shows / hide A,B,C joystick controls
                 Invalidate();
             }
             const string reg_key = "HKEY_CURRENT_USER\\SOFTWARE\\KPolar";
 
-            if (isStreaming)
-            {
-                elapsed = DateTime.UtcNow - timeInit;
-
-
-                if (signalShowToolExchangeMessage)
-                {
-                    signalShowToolExchangeMessage = false;
-                    ShowToolChangeMessage();
-                }
-                if (Properties.Settings.Default.flowCheckRegistryChange)
-                {
-                    int start = 0, stop = 0;
-                    
-
-                    try
-                    {
-                        start = (int)Registry.GetValue(reg_key, "start", 0);
-                        Registry.SetValue(reg_key, "start", 0);
-                        stop = (int)Registry.GetValue(reg_key, "stop", 0);
-                        Registry.SetValue(reg_key, "stop", 0);
-                    }
-                    catch (Exception er) { Logger.Error(er, "MainTimer_Tick stream Reading reg-key update "); }
-
-                    if (start != 0)
-                    {
-                        Logger.Trace("MainTimer_Tick Pause streaming");
-                        StartStreaming(0, fCTBCode.LinesCount - 1);   // btnStreamStart.PerformClick(); 
-                    }
-                    if (stop != 0)
-                    {
-                        Logger.Trace("MainTimer_Tick Stop streaming");
-
-                    }
-                }
-            }
-            else
-            {
+           
                 if (updateDrawingPath && VisuGCode.ContainsG91Command())
                 {
                     pictureBox1.Invalidate(); // will be called by parent function
@@ -496,12 +430,8 @@ namespace GrblPlotter
                         TransformEnd();
                     }
 
-                    if (start != 0)
-                    {
-                        Logger.Trace("MainTimer_Tick Start streaming", rotate);
-                        StartStreaming(0, fCTBCode.LinesCount - 1);   // (); btnStreamStart.PerformClick();
-                    }
-                }
+                   
+                
 
                 if (loadTimerStep == 0)
                 {
@@ -509,14 +439,7 @@ namespace GrblPlotter
                     Application.DoEvents();
                 }
             }
-            if (signalPlay > 0) // activate blinking buttob
-            {
-                if ((signalPlay++ % 2) > 0) btnStreamStart.BackColor = Color.Yellow;
-                else btnStreamStart.BackColor = SystemColors.Control;
-            }
            
-
-            ShowGrblLastMessage();
 
             if (timerShowGCodeError)
             {
@@ -524,31 +447,7 @@ namespace GrblPlotter
                 ShowGCodeErrors();
             }
 
-            if (delayedStatusStripClear0 > 0)
-            {
-                if (delayedStatusStripClear0-- == 1)
-                { StatusStripClear(0); }
-            }
-            if (delayedStatusStripClear1 > 0)
-            {
-                if (delayedStatusStripClear1-- == 1)
-                { StatusStripClear(1); }
-            }
-            if (delayedStatusStripClear2 > 0)
-            {
-                if (delayedStatusStripClear2-- == 1)
-                { StatusStripClear(2); }
-            }
-            if (delayedMessageFormClose > 0)
-            {
-                if (delayedMessageFormClose-- == 1)
-                {
-                    if (!CloseMessageForm(true))
-                        delayedMessageFormClose++;
-
-                    //    Logger.Trace("delayedMessageFormClose {0}", delayedMessageFormClose);
-                }
-            }
+           
             if (delayedHeightMapShow > 0)
             {
                 if (delayedHeightMapShow-- == 1)
@@ -570,34 +469,7 @@ namespace GrblPlotter
             return true;
         }
 
-        private void ShowGrblLastMessage()
-        {
-            if (Grbl.lastMessage.Length > 3)
-            {
-                if (Grbl.lastMessage.ToLower(culture).Contains("missing"))
-                {
-                    StatusStripClear();
-                    StatusStripSet(1, Grbl.lastMessage, Color.Fuchsia);
-                    StatusStripSet(2, Localization.GetString("statusStripeResetNeeded"), Color.Yellow);
-                }
-                else if (Grbl.lastMessage.ToLower(culture).Contains("reset"))
-                {
-                    StatusStripClear(2); // MainTimer_Tick
-
-                    if (Grbl.lastMessage.ToLower(culture).Contains("streaming"))
-                        StatusStripSet(1, Grbl.lastMessage, Color.Fuchsia);
-                    else
-                        StatusStripSet(1, Grbl.lastMessage, Color.Yellow);
-
-                    if (Grbl.lastMessage.ToLower(culture).Contains("hard"))
-                        StatusStripSet(2, Localization.GetString("statusStripeGrblResetNeeded"), Color.Yellow);
-                }
-                else
-                    StatusStripSet(1, Grbl.lastMessage, Color.Yellow);
-                Grbl.lastMessage = "";
-            }
-        }
-
+        
 
         #region GUI Objects
 
@@ -679,13 +551,13 @@ namespace GrblPlotter
 
         private async void Export_Gcode_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(serverIP.Text) && !(string.IsNullOrEmpty(saveName)))
+            if (!string.IsNullOrEmpty(serverIP.Text) && !string.IsNullOrEmpty(saveName))
             {
                 string serverIPAddress = serverIP.Text;
                 string filename = saveName + ".gcode";
                 IList<string> temp = fCTBCode.Lines;
                 // remove any brackets, comments
-                string comments = "";
+               
                 temp = new List<string>();
                 int pos;
                 foreach (string line in fCTBCode.Lines)
@@ -705,21 +577,9 @@ namespace GrblPlotter
                 string encoding = GuiVariables.SaveEncoding[encodeIndex].BodyName;
 
                 var isPrintEnabled = new StringContent("true");
-                //string message = filename + " is ready to upload\n    Press [Yes] to upload and print,\n     [No] to upload.";
-                //string caption = "Error Detected in Input";
-                //MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
-                //DialogResult result = MessageBox.Show(message, caption, buttons);
-                //if (result == DialogResult.Yes)
-                //    isPrintEnabled = new StringContent("true");
-                //else if (result == DialogResult.No)
-                //    isPrintEnabled = new StringContent("false");
-                //else
-                //{
-                //    return;
-                //}
                 var dialog = new CustomDialog(filename + " is ready to upload", "Upload GCode", this);
                 dialog.ShowDialog();
-                if ( dialog.Result != CustomDialog.DialogResult.Cancel)
+                if (dialog.Result != CustomDialog.DialogResult.Cancel)
                 {
                     isPrintEnabled = new StringContent(dialog.Result == CustomDialog.DialogResult.UploadAndPrint ? "true" : "false");
                 }
@@ -727,42 +587,50 @@ namespace GrblPlotter
                 {
                     return;
                 }
-               
-
 
                 try
+                {
+                    using (var form = new MultipartFormDataContent())
                     {
-                        using (var form = new MultipartFormDataContent())
+                        var fileContent = new StringContent(string.Join(Environment.NewLine, temp));
+                        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+                        form.Add(fileContent, "file", Path.GetFileName(filename));
+
+                        form.Add(isPrintEnabled, "print");
+                        StatusStripClear();
+                        StatusStripSet(0, $"Connexion to {serverIPAddress} ...", Color.LightSalmon);
+                        
+
+                        var progressHandler = new ProgressMessageHandler();
+                        progressHandler.HttpSendProgress += (s, args) =>
                         {
-                            var fileContent = new StringContent(string.Join(Environment.NewLine, temp));
-                            fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
-                            form.Add(fileContent, "file", Path.GetFileName(filename));
+                            var percentComplete = (int)((args.BytesTransferred / (double)args.TotalBytes) * 100);
+                            StatusStripSet(0, $"Uploading gcode... {percentComplete}%", Color.LightSalmon);
+                        };
 
-                            form.Add(isPrintEnabled, "print");
+                        var client = HttpClientFactory.Create(progressHandler);
+                        var response = await client.PostAsync($"http://{serverIPAddress}:7125/server/files/upload", form);
 
-                            var response = await shareclient.PostAsync($"http://{serverIPAddress}:7125/server/files/upload", form);
-
-                            if (response.IsSuccessStatusCode)
+                        if (response.IsSuccessStatusCode)
+                        {
+                            // Save serverIPAddress to config
+                            if (Properties.Settings.Default.serverIPAddress != serverIPAddress)
                             {
-                                // Save serverIPAddress to config
-                                if (Properties.Settings.Default.serverIPAddress != serverIPAddress)
-                                {
-                                    Properties.Settings.Default.serverIPAddress = serverIPAddress;
-                                    Properties.Settings.Default.Save();
-                                }
-
-                                MessageBox.Show("File uploaded successfully.");
+                                Properties.Settings.Default.serverIPAddress = serverIPAddress;
+                                Properties.Settings.Default.Save();
                             }
-                            else
-                            {
-                                MessageBox.Show($"Failed to upload file. Status code: {response.StatusCode}");
-                            }
+                            StatusStripSet(0, $"Gcode {Path.GetFileName(filename)} uploaded successfully.", Color.LightGreen);
+                        }
+                        else
+                        {
+                            StatusStripSet(0, $"Failed to upload gcode. Status code: {response.StatusCode}", Color.Red);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"An error occurred: {ex.Message}");
-                    }
+                }
+                catch (Exception ex)
+                {
+                    StatusStripSet(0, $"Failed to upload gcode. Status code:  {ex.Message}", Color.Red);
+                }
             }
             else
             {
@@ -841,14 +709,9 @@ namespace GrblPlotter
         }
 
         private bool gBoxDROShowSetCoord = false;
-        private void GrpBoxDRO_Click(object sender, EventArgs e)
-        {
-            gBoxDROShowSetCoord = !gBoxDROShowSetCoord;
-        }
-
-        private bool gBoxOverrideLarge = false;
         
-        private bool GbJoggingLarge = false;
+
+       
         
 
         internal void SetUndoText(string txt)
@@ -1035,9 +898,9 @@ namespace GrblPlotter
             }
         }
 
-        private void btnOpenFile_Click(object sender, EventArgs e)
+        private void BtnOpenFile_Click(object sender, EventArgs e)
         {
-            BtnOpenFile_Click(sender, e);
+            OpenFile_event(sender, e);
         }
     }
 }

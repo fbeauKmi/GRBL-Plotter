@@ -1269,7 +1269,7 @@ namespace GrblPlotter
                 fromTTZ = Properties.Settings.Default.importGCTTZAxis;
                 fromTTXY = Properties.Settings.Default.importGCTTXYFeed;
                 fromTTSS = Properties.Settings.Default.importGCTTSSpeed;
-                ZEnable = Properties.Settings.Default.importGCZEnable;
+               
                 TTImport = Properties.Settings.Default.importGCToolTableUse;
                 TangEnable = Properties.Settings.Default.importGCTangentialEnable;
             }
@@ -1284,34 +1284,14 @@ namespace GrblPlotter
             AddInfo(tmp, "Path nodes only: {0}\r\n", fromSettings ? Properties.Settings.Default.importSVGNodesOnly.ToString() : Read("SVG Process nodes only", "Graphics Import"));
             AddInfo(tmp, "Pen width to Z: {0}\r\n", fromSettings ? Properties.Settings.Default.importDepthFromWidth.ToString() : Read("Pen width to z", "Graphics Import"));
             AddInfo(tmp, "Circle to dot : {0}\r\n", fromSettings ? Properties.Settings.Default.importSVGCircleToDot.ToString() : Read("SVG circle to dot", "Graphics Import"));
-
-            AddInfo(tmp, "Laser mode    : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCSpindleToggleLaser.ToString() : Read("Spindle Use Laser", "GCode generation"));
             if (!(TTImport && fromTTZ))
                 tmp.AppendFormat("XY Feedrate   : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCXYFeed.ToString() : Read("XY Feedrate", "GCode generation"));
             else
                 tmp.AppendFormat("XY Feedrate   : from tool table!\r\n");
 
-            if (!(TTImport && fromTTSS))
-                tmp.AppendFormat("Spindle Speed : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCSSpeed.ToString() : Read("Spindle Speed", "GCode generation"));
-            else
-                tmp.AppendFormat("Spindle Speed : from tool table!\r\n");
 
-            tmp.AppendFormat("Z Enable      : {0}\r\n", ZEnable.ToString());
-            if (ZEnable)
-            {
-                if (!(TTImport && fromTTZ))
-                {
-                    tmp.AppendFormat("  Z Feedrate  : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCZFeed.ToString() : Read("Z Feedrate", "GCode generation"));
-                    tmp.AppendFormat("  Z Save      : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCZUp.ToString() : Read("Z Up Pos", "GCode generation"));
-                    tmp.AppendFormat("  Z Down Pos  : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCZDown.ToString() : Read("Z Down Pos", "GCode generation"));
-                    tmp.AppendFormat("  Z in passes : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCZIncEnable.ToString() : Read("Z Inc Enable", "GCode generation"));
-                    tmp.AppendFormat("  Z step/pass : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCZIncrement.ToString() : Read("Z Increment", "GCode generation"));
-                }
-                else
-                { tmp.AppendFormat("  Z values    : from tool table!\r\n"); }
-            }
-            AddInfo(tmp, "Spindle Toggle: {0}\r\n", fromSettings ? Properties.Settings.Default.importGCSpindleToggle.ToString() : Read("Spindle Toggle", "GCode generation"));
-            AddInfo(tmp, "PWM RC-Servo  : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCPWMEnable.ToString() : Read("PWM Enable", "GCode generation"));
+            
+           AddInfo(tmp, "PWM RC-Servo  : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCPWMEnable.ToString() : Read("PWM Enable", "GCode generation"));
             tmp.AppendFormat("Tangent.Enable: {0}\r\n", TangEnable.ToString());
             if (TangEnable)
             {
@@ -1321,9 +1301,6 @@ namespace GrblPlotter
                 tmp.AppendFormat("  Tang. range  : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCTangentialRange.ToString() : Read("Tangential axis range", "GCode modification"));
             }
             tmp.AppendLine();
-            AddInfo(tmp, "Tool table enable : {0}\r\n", fromSettings ? Properties.Settings.Default.importGCToolTableUse.ToString() : Read("Tool table enable", "Graphics Import"));
-            AddInfo(tmp, "Tool table apply  : {0}\r\n", fromSettings ? Properties.Settings.Default.toolTableLastLoaded.ToString() : Read("Tool table loaded", "Tool change"));
-            AddInfo(tmp, "Tool change enable: {0}\r\n", fromSettings ? Properties.Settings.Default.ctrlToolChange.ToString() : Read("Tool change enable", "Tool change"));
             return tmp.ToString();
         }
         private static void AddInfo(StringBuilder tmp, string key, string value)

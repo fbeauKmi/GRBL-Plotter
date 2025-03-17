@@ -117,44 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="grblAlarm" xml:space="preserve">
-    <value>Allarme</value>
-  </data>
-  <data name="grblCheck" xml:space="preserve">
-    <value>Dai un'occhiata</value>
-  </data>
-  <data name="grblDoor" xml:space="preserve">
-    <value>Porta</value>
-  </data>
-  <data name="grblHold" xml:space="preserve">
-    <value>Blocca</value>
-  </data>
-  <data name="grblHome" xml:space="preserve">
-    <value>Casa</value>
-  </data>
-  <data name="grblIdle" xml:space="preserve">
-    <value>Pausa</value>
-  </data>
-  <data name="grblJog" xml:space="preserve">
-    <value>Fare jogging</value>
-  </data>
-  <data name="grblProbe" xml:space="preserve">
-    <value>Sondare</value>
-  </data>
-  <data name="grblRun" xml:space="preserve">
-    <value>Partire</value>
-  </data>
-  <data name="grblSleep" xml:space="preserve">
-    <value>Fermo</value>
-  </data>
-  <data name="grblNotConnected" xml:space="preserve">
-    <value>Il controller grbl non è connesso!\r\nImpossibile eseguire l'azione desiderata!</value>
-  </data>
   <data name="mainAttention" xml:space="preserve">
     <value>Attenzione</value>
-  </data>
-  <data name="mainHelpLanguage" xml:space="preserve">
-    <value>Sentiti libero di migliorare la traduzione</value>
   </data>
   <data name="mainHotkeyError" xml:space="preserve">
     <value>File 'hotkeys.xml' non trovato, nessun tasto di scelta rapida impostato!</value>
@@ -177,41 +141,11 @@
   <data name="mainInfoFinishSend" xml:space="preserve">
     <value>Termina l'invio del codice G</value>
   </data>
-  <data name="mainInfoKill" xml:space="preserve">
-    <value>Premi 'Kill Alarm' per procedere ('$X')</value>
-  </data>
-  <data name="mainInfoLaserModeOff" xml:space="preserve">
-    <value>Modalità laser non attiva $32=0</value>
-  </data>
-  <data name="mainInfoLaserModeOn" xml:space="preserve">
-    <value>Modalità laser attiva $32=1</value>
-  </data>
-  <data name="mainInfoPause" xml:space="preserve">
-    <value>Metti in pausa lo streaming: premi play (</value>
-  </data>
-  <data name="mainInfoProbing" xml:space="preserve">
-    <value>Sondaggio</value>
-  </data>
-  <data name="mainInfoResume" xml:space="preserve">
-    <value>Premi 'Riprendi' per procedere</value>
-  </data>
   <data name="mainInfoSendCode" xml:space="preserve">
     <value>Invia codice G</value>
   </data>
-  <data name="mainInfoStopStream" xml:space="preserve">
-    <value>INTERROMPI lo streaming (</value>
-  </data>
-  <data name="mainInfoStopStream2" xml:space="preserve">
-    <value>STOP streaming (Linea</value>
-  </data>
-  <data name="mainInfoToolChange" xml:space="preserve">
-    <value>Cambio utensile...</value>
-  </data>
   <data name="mainInfoUndo" xml:space="preserve">
     <value>Annulla l'ultima azione</value>
-  </data>
-  <data name="mainInfoWaitIdle" xml:space="preserve">
-    <value>Attendi IDLE, quindi metti in pausa (</value>
   </data>
   <data name="mainLimits1" xml:space="preserve">
     <value>La prossima mossa supererà i limiti della macchina!\r</value>
@@ -249,17 +183,11 @@
   <data name="mainPauseStream2" xml:space="preserve">
     <value>Vuoi continuare il lavoro?</value>
   </data>
-  <data name="mainProblem" xml:space="preserve">
-    <value>Problema</value>
-  </data>
   <data name="mainProgress" xml:space="preserve">
     <value>Progresso</value>
   </data>
   <data name="mainQuit" xml:space="preserve">
     <value>Uscire da GRBL-Plotter?</value>
-  </data>
-  <data name="mainSimuSpeed" xml:space="preserve">
-    <value>Velocità</value>
   </data>
   <data name="mainSimuStart" xml:space="preserve">
     <value>Avvia la simulazione del percorso</value>
@@ -402,20 +330,8 @@
   <data name="cameraDistortionMarker" xml:space="preserve">
     <value>Indicatore di distorsione</value>
   </data>
-  <data name="probing" xml:space="preserve">
-    <value>sondare</value>
-  </data>
-  <data name="scan" xml:space="preserve">
-    <value>scansione</value>
-  </data>
-  <data name="heightScan" xml:space="preserve">
-    <value>scansione dell'altezza</value>
-  </data>
   <data name="useCaseInfo" xml:space="preserve">
     <value>Un caso d'uso è un'impostazione preimpostata per regolare le impostazioni per una macchina e/o un'applicazione specifica.\r\nLe impostazioni di un caso d'uso selezionato e applicato rimangono anche dopo l'importazione della grafica.\r\nÈ necessario un caso d'uso da archiviare in \data\usecases per essere accessibile.\r\nÈ anche possibile utilizzare le impostazioni della macchina esportate e i suoi sottoinsiemi.</value>
-  </data>
-  <data name="useCaseInfo2" xml:space="preserve">
-    <value>Informazione</value>
   </data>
   <data name="useCaseHeader1" xml:space="preserve">
     <value>Usa le impostazioni correnti (ultimo caricamento: '{0}')</value>
@@ -717,5 +633,8 @@ Possibile soluzione: provare a convertire l'oggetto in percorso.</value>
   </data>
   <data name="loadMessageReload" xml:space="preserve">
     <value>Ricaricare</value>
+  </data>
+  <data name="mainInfoToolChange" xml:space="preserve">
+    <value>Cambio utensile...</value>
   </data>
 </root>

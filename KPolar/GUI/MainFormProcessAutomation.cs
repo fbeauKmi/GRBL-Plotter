@@ -111,12 +111,7 @@ namespace GrblPlotter
                 _process_form?.Feedback(e.Command, e.Value, LoadFromClipboard());
                 _process_form?.BringToFront();
             }
-            else if (act.Contains("g-code"))
-            {
-                
-                if (act.Contains("stream"))
-                    StartStreaming(0, fCTBCode.LinesCount - 1);
-            }
+            
 
             else if (act.Contains("createtext"))
             {

@@ -902,13 +902,13 @@ namespace GrblPlotter
             if (scolor1.Length > 6)
             { scolor1 = scolor1.Substring(0, 6); }
             try { lcolor1 = Convert.ToInt32(scolor1, 16) | 0xff000000; }
-            catch (Exception err)
+            catch (FormatException err)
             { Logger.Error(err, "DgvSortColor could not convert color1:{0} ", scolor1); }
 
             if (scolor2.Length > 6)
             { scolor2 = scolor2.Substring(0, 6); }
             try { lcolor2 = Convert.ToInt32(scolor2, 16) | 0xff000000; }
-            catch (Exception err)
+            catch (FormatException err)
             { Logger.Error(err, "DgvSortColor could not convert color2:{0} ", scolor2); }
 
             Color ccolor1 = Color.FromArgb((int)lcolor1);

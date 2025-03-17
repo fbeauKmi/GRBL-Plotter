@@ -117,53 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="serialCloseError" xml:space="preserve">
-    <value>Необходимо последовательное соединение. \r\nЗакройте главное окно</value>
-  </data>
   <data name="mainAttention" xml:space="preserve">
     <value>Внимание</value>
-  </data>
-  <data name="mainLimits1" xml:space="preserve">
-    <value>Следующий ход превысит пределы машины!\r</value>
-  </data>
-  <data name="mainLimits2" xml:space="preserve">
-    <value>\r\n Нажмите «ОК», чтобы все равно двигаться</value>
-  </data>
-  <data name="mainParseError" xml:space="preserve">
-    <value>Неверный номер</value>
-  </data>
-  <data name="mainProblem" xml:space="preserve">
-    <value>проблема</value>
-  </data>
-  <data name="mainQuit" xml:space="preserve">
-    <value>Выйти из GRBL-Плоттера?</value>
-  </data>
-  <data name="mainToolChange" xml:space="preserve">
-    <value>Смена инструмента / ручки!</value>
-  </data>
-  <data name="mainToolChange1" xml:space="preserve">
-    <value>Требуется смена инструмента: \r</value>
-  </data>
-  <data name="mainToolChange2" xml:space="preserve">
-    <value>\r нажмите Старт, чтобы продолжить.</value>
-  </data>
-  <data name="mainInfoCheckCode" xml:space="preserve">
-    <value>Проверьте G-код</value>
-  </data>
-  <data name="mainInfoSendCode" xml:space="preserve">
-    <value>Отправить G-код</value>
-  </data>
-  <data name="mainInfoStopStream" xml:space="preserve">
-    <value>Остановить потоковую передачу (</value>
-  </data>
-  <data name="mainInfoStopStream2" xml:space="preserve">
-    <value>STOP потоковое (Линия</value>
-  </data>
-  <data name="mainInfoToolChange" xml:space="preserve">
-    <value>Смена инструмента ...</value>
-  </data>
-  <data name="mainInfoUndo" xml:space="preserve">
-    <value>Отменить последнее действие</value>
   </data>
   <data name="mainHotkeyError" xml:space="preserve">
     <value>Файл 'hotkeys.xml' не найден, горячие клавиши не установлены!</value>
@@ -173,6 +128,30 @@
   </data>
   <data name="mainHotkeyError2" xml:space="preserve">
     <value>Ошибка с Hotkey.xml</value>
+  </data>
+  <data name="mainInfoCheckCode" xml:space="preserve">
+    <value>Проверьте G-код</value>
+  </data>
+  <data name="mainInfoErrorLine" xml:space="preserve">
+    <value>Ошибка перед строкой</value>
+  </data>
+  <data name="mainInfoFinishCheck" xml:space="preserve">
+    <value>Завершить проверку G-кода</value>
+  </data>
+  <data name="mainInfoFinishSend" xml:space="preserve">
+    <value>Завершить отправку G-кода</value>
+  </data>
+  <data name="mainInfoSendCode" xml:space="preserve">
+    <value>Отправить G-код</value>
+  </data>
+  <data name="mainInfoUndo" xml:space="preserve">
+    <value>Отменить последнее действие</value>
+  </data>
+  <data name="mainLimits1" xml:space="preserve">
+    <value>Следующий ход превысит пределы машины!\r</value>
+  </data>
+  <data name="mainLimits2" xml:space="preserve">
+    <value>\r\n Нажмите «ОК», чтобы все равно двигаться</value>
   </data>
   <data name="mainLimits3" xml:space="preserve">
     <value>Размерность графики превышает размеры машины! \r\n Преобразование рекомендуется во избежание повреждения машины!</value>
@@ -186,6 +165,12 @@
   <data name="mainLoadError2" xml:space="preserve">
     <value>Расширение URL не равно 'svg' или 'dxf' \r\n. Попробуйте импортировать SVG, но без настройки списка последних файлов.</value>
   </data>
+  <data name="mainLoadError3" xml:space="preserve">
+    <value>Расширение файла не поддерживается</value>
+  </data>
+  <data name="mainParseError" xml:space="preserve">
+    <value>Неверный номер</value>
+  </data>
   <data name="mainParseError1" xml:space="preserve">
     <value>Недопустимый номер, установите строку в 0</value>
   </data>
@@ -198,59 +183,38 @@
   <data name="mainPauseStream2" xml:space="preserve">
     <value>Вы хотите продолжить работу?</value>
   </data>
+  <data name="mainProgress" xml:space="preserve">
+    <value>Прогресс</value>
+  </data>
+  <data name="mainQuit" xml:space="preserve">
+    <value>Выйти из GRBL-Плоттера?</value>
+  </data>
+  <data name="mainSimuStart" xml:space="preserve">
+    <value>Начать симуляцию пути</value>
+  </data>
+  <data name="mainSimuStop" xml:space="preserve">
+    <value>Остановить симуляцию</value>
+  </data>
   <data name="mainStreamingActive" xml:space="preserve">
     <value>Потоковая передача все еще активна - нажмите Стоп и попробуйте снова</value>
   </data>
+  <data name="mainToolChange" xml:space="preserve">
+    <value>Смена инструмента / ручки!</value>
+  </data>
+  <data name="mainToolChange1" xml:space="preserve">
+    <value>Требуется смена инструмента: \r</value>
+  </data>
+  <data name="mainToolChange2" xml:space="preserve">
+    <value>\r нажмите Старт, чтобы продолжить.</value>
+  </data>
   <data name="mainUnknownCode" xml:space="preserve">
     <value>Неизвестный G-Code закомментирован: \r\n</value>
-  </data>
-  <data name="serialClose" xml:space="preserve">
-    <value>Закрыть</value>
-  </data>
-  <data name="serialOpen" xml:space="preserve">
-    <value>Открыть</value>
-  </data>
-  <data name="mainInfoErrorLine" xml:space="preserve">
-    <value>Ошибка перед строкой</value>
-  </data>
-  <data name="mainInfoFinishCheck" xml:space="preserve">
-    <value>Завершить проверку G-кода</value>
-  </data>
-  <data name="mainInfoFinishSend" xml:space="preserve">
-    <value>Завершить отправку G-кода</value>
-  </data>
-  <data name="mainInfoKill" xml:space="preserve">
-    <value>Нажмите «Kill Alarm», чтобы продолжить</value>
-  </data>
-  <data name="mainInfoLaserModeOff" xml:space="preserve">
-    <value>Лазерный режим не активен $32 = 0</value>
-  </data>
-  <data name="mainInfoLaserModeOn" xml:space="preserve">
-    <value>Лазерный режим активен $32 = 1</value>
-  </data>
-  <data name="mainInfoPause" xml:space="preserve">
-    <value>Пауза потоковой передачи - нажмите кнопку воспроизведения (</value>
-  </data>
-  <data name="mainInfoProbing" xml:space="preserve">
-    <value>прощупывание</value>
-  </data>
-  <data name="mainInfoResume" xml:space="preserve">
-    <value>Нажмите «Продолжить», чтобы продолжить</value>
-  </data>
-  <data name="mainInfoWaitIdle" xml:space="preserve">
-    <value>Жди бездействия, потом пауза (</value>
-  </data>
-  <data name="mainProgress" xml:space="preserve">
-    <value>Прогресс</value>
   </data>
   <data name="probingCancel1" xml:space="preserve">
     <value>Выборка прервана</value>
   </data>
   <data name="probingCancel2" xml:space="preserve">
     <value>Обработать последнюю команду</value>
-  </data>
-  <data name="probingProbingOn" xml:space="preserve">
-    <value>Зондирование на </value>
   </data>
   <data name="probingCenter" xml:space="preserve">
     <value>Переместить в центр</value>
@@ -264,56 +228,23 @@
   <data name="probingFinish" xml:space="preserve">
     <value>Конец</value>
   </data>
+  <data name="probingProbingOn" xml:space="preserve">
+    <value>Зондирование на </value>
+  </data>
   <data name="probingSetCenter" xml:space="preserve">
     <value>Установить центр</value>
   </data>
   <data name="probingTimeOut" xml:space="preserve">
     <value>Время вышло</value>
   </data>
-  <data name="mainLoadError3" xml:space="preserve">
-    <value>Расширение файла не поддерживается</value>
+  <data name="serialClose" xml:space="preserve">
+    <value>Закрыть</value>
   </data>
-  <data name="mainSimuStart" xml:space="preserve">
-    <value>Начать симуляцию пути</value>
+  <data name="serialCloseError" xml:space="preserve">
+    <value>Необходимо последовательное соединение. \r\nЗакройте главное окно</value>
   </data>
-  <data name="mainSimuStop" xml:space="preserve">
-    <value>Остановить симуляцию</value>
-  </data>
-  <data name="mainHelpLanguage" xml:space="preserve">
-    <value>Не стесняйтесь улучшать перевод</value>
-  </data>
-  <data name="mainSimuSpeed" xml:space="preserve">
-    <value>скорость</value>
-  </data>
-  <data name="grblAlarm" xml:space="preserve">
-    <value>Аварийная </value>
-  </data>
-  <data name="grblCheck" xml:space="preserve">
-    <value>Проверьте</value>
-  </data>
-  <data name="grblDoor" xml:space="preserve">
-    <value>Дверь</value>
-  </data>
-  <data name="grblHold" xml:space="preserve">
-    <value>Держать</value>
-  </data>
-  <data name="grblHome" xml:space="preserve">
-    <value>Дом</value>
-  </data>
-  <data name="grblIdle" xml:space="preserve">
-    <value>вхолостую</value>
-  </data>
-  <data name="grblJog" xml:space="preserve">
-    <value>бегать трусцой</value>
-  </data>
-  <data name="grblProbe" xml:space="preserve">
-    <value>зонд</value>
-  </data>
-  <data name="grblRun" xml:space="preserve">
-    <value>Бегать</value>
-  </data>
-  <data name="grblSleep" xml:space="preserve">
-    <value>Спать</value>
+  <data name="serialOpen" xml:space="preserve">
+    <value>Открыть</value>
   </data>
   <data name="statusStripeCheckCOM" xml:space="preserve">
     <value>Проверьте COM-окно для получения дополнительной информации</value>
@@ -342,14 +273,14 @@
   <data name="statusStripeResetNeeded" xml:space="preserve">
     <value>Вероятно, необходим сброс контроллера</value>
   </data>
+  <data name="statusStripeSelectionMoved" xml:space="preserve">
+    <value>Выбор перемещен</value>
+  </data>
   <data name="statusStripeStreamingStatusSaved" xml:space="preserve">
     <value>Статус потоковой передачи и G-код сохраняются в _lastProcessed.nc. Продолжение после перезапуска программы возможно.</value>
   </data>
   <data name="statusStripeUpKeys" xml:space="preserve">
     <value>Control-Up для перемещения выбранного блока один вверх; Control-Shift-Up для перемещения наверх</value>
-  </data>
-  <data name="statusStripeSelectionMoved" xml:space="preserve">
-    <value>Выбор перемещен</value>
   </data>
   <data name="statusStripeCheckUpdate" xml:space="preserve">
     <value>«Проверить новую версию GRBL-Plotter на GitHub» - можно отключить в [Настройка - Управление программой]</value>
@@ -399,14 +330,8 @@
   <data name="cameraDistortionMarker" xml:space="preserve">
     <value>Маркер искажения</value>
   </data>
-  <data name="grblNotConnected" xml:space="preserve">
-    <value>Контроллер grbl не подключен! \r\nНе удается выполнить желаемое действие!</value>
-  </data>
   <data name="useCaseInfo" xml:space="preserve">
     <value>Вариант использования — это предустановленная настройка для настройки параметров для конкретной машины и/или приложения.\r\nНастройки выбранного и примененного варианта использования также сохраняются после импорта графики.\r\nПотребности варианта использования для хранения в \data\usecases, чтобы быть доступным.\r\nТакже можно использовать экспортированные настройки машины и их подмножества.</value>
-  </data>
-  <data name="useCaseInfo2" xml:space="preserve">
-    <value>Информация</value>
   </data>
   <data name="useCaseHeader1" xml:space="preserve">
     <value>Использовать текущие настройки (последние загружены: '{0}')</value>
@@ -713,5 +638,8 @@
   </data>
   <data name="loadMessageReload" xml:space="preserve">
     <value>Перезагрузить</value>
+  </data>
+  <data name="mainInfoToolChange" xml:space="preserve">
+    <value>Смена инструмента ...</value>
   </data>
 </root>

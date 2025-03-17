@@ -44,6 +44,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace GrblPlotter
 {
@@ -522,7 +523,7 @@ namespace GrblPlotter
     internal class Dimensions
     {
         public double minx, maxx, miny, maxy, minz, maxz;
-        public double dimx, dimy, dimz;
+        public double dimx, dimy, dimz, radius, oldx, oldy;
 
         public Dimensions(Dimensions old)
         {
@@ -535,6 +536,7 @@ namespace GrblPlotter
             dimx = old.dimx;
             dimy = old.dimy;
             dimz = old.dimz;
+            radius = old.radius;
         }
 
         public Dimensions()
@@ -560,6 +562,8 @@ namespace GrblPlotter
         {
             if (x != null) { SetDimensionX((double)x); }
             if (y != null) { SetDimensionY((double)y); }
+            var tmpradius = Math.Sqrt(Math.Pow((double)x, 2) + Math.Pow((double)y, 2));
+            radius = Math.Max(radius, tmpradius);
         }
         public void SetDimensionX(double value)
         {
@@ -716,6 +720,17 @@ namespace GrblPlotter
             double maxly = minly + (double)Properties.Settings.Default.machineLimitsRangeY;
             tstx += actualMachine.X;
             tsty += actualMachine.Y;
+            double radius = Math.Sqrt(Math.Pow(tstx,2) + Math.Pow(tsty,2));
+
+
+            // With the following line:
+
+            //if (radius > maxlx + 5)
+            //{
+            //    MessageBox.Show($"{tstx},{tsty}");
+            //    return false;
+
+            //}
             if ((tstx < minlx) || (tstx > maxlx))
                 return false;
             if ((tsty < minly) || (tsty > maxly))

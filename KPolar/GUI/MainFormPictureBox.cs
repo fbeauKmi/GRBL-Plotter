@@ -739,7 +739,7 @@ namespace GrblPlotter
             {
                 if (manualEdit) { NewCodeEnd(); }
 
-                if (VisuGCode.CodeBlocksAvailable() && !isStreaming)
+                if (VisuGCode.CodeBlocksAvailable() )
                 {
 
                     /* 1. get selection whish: group, figure, node */
@@ -1039,7 +1039,7 @@ namespace GrblPlotter
                 penSimulation.Width = (float)Properties.Settings.Default.gui2DWidthSimulation * factorWidth;
                 penSimulation.LineJoin = LineJoin.Round;
 
-                brushMachineLimit = new HatchBrush(HatchStyle.DiagonalCross, Properties.Settings.Default.gui2DColorMachineLimit, Color.Transparent);
+                brushMachineLimit = new HatchBrush(HatchStyle.DiagonalCross, Color.Orange, Color.Transparent);
                 picBoxBackround = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             }
             catch (Exception err)

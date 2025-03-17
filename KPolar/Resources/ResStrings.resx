@@ -117,44 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="grblAlarm" xml:space="preserve">
-    <value>Alarm</value>
-  </data>
-  <data name="grblCheck" xml:space="preserve">
-    <value>Check</value>
-  </data>
-  <data name="grblDoor" xml:space="preserve">
-    <value>Door</value>
-  </data>
-  <data name="grblHold" xml:space="preserve">
-    <value>Hold</value>
-  </data>
-  <data name="grblHome" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="grblIdle" xml:space="preserve">
-    <value>Idle</value>
-  </data>
-  <data name="grblJog" xml:space="preserve">
-    <value>Jog</value>
-  </data>
-  <data name="grblProbe" xml:space="preserve">
-    <value>Probe</value>
-  </data>
-  <data name="grblRun" xml:space="preserve">
-    <value>Run</value>
-  </data>
-  <data name="grblSleep" xml:space="preserve">
-    <value>Sleep</value>
-  </data>
-  <data name="grblNotConnected" xml:space="preserve">
-    <value>grbl controller is not connected!\r\nCannot perform the desired action!</value>
-  </data>
   <data name="mainAttention" xml:space="preserve">
     <value>Attention</value>
-  </data>
-  <data name="mainHelpLanguage" xml:space="preserve">
-    <value>Feel free to improove translation</value>
   </data>
   <data name="mainHotkeyError" xml:space="preserve">
     <value>File 'hotkeys.xml' not found, no hotkeys set!</value>
@@ -177,41 +141,11 @@
   <data name="mainInfoFinishSend" xml:space="preserve">
     <value>Finish sending G-Code</value>
   </data>
-  <data name="mainInfoKill" xml:space="preserve">
-    <value>Press 'Kill Alarm' to proceed ('$X')</value>
-  </data>
-  <data name="mainInfoLaserModeOff" xml:space="preserve">
-    <value>Laser Mode not active $32=0</value>
-  </data>
-  <data name="mainInfoLaserModeOn" xml:space="preserve">
-    <value>Laser Mode active $32=1</value>
-  </data>
-  <data name="mainInfoPause" xml:space="preserve">
-    <value>Pause streaming - press play (</value>
-  </data>
-  <data name="mainInfoProbing" xml:space="preserve">
-    <value>Probing</value>
-  </data>
-  <data name="mainInfoResume" xml:space="preserve">
-    <value>Press 'Resume' to proceed</value>
-  </data>
   <data name="mainInfoSendCode" xml:space="preserve">
     <value>Send G-Code</value>
   </data>
-  <data name="mainInfoStopStream" xml:space="preserve">
-    <value>STOP streaming (</value>
-  </data>
-  <data name="mainInfoStopStream2" xml:space="preserve">
-    <value>STOP streaming ( Line</value>
-  </data>
-  <data name="mainInfoToolChange" xml:space="preserve">
-    <value>Tool change...</value>
-  </data>
   <data name="mainInfoUndo" xml:space="preserve">
     <value>Undo last action</value>
-  </data>
-  <data name="mainInfoWaitIdle" xml:space="preserve">
-    <value>Wait for IDLE, then pause (</value>
   </data>
   <data name="mainLimits1" xml:space="preserve">
     <value>Next move will exceed machine limits!\r</value>
@@ -249,17 +183,11 @@
   <data name="mainPauseStream2" xml:space="preserve">
     <value>Do you want to continue the job?</value>
   </data>
-  <data name="mainProblem" xml:space="preserve">
-    <value>Problem</value>
-  </data>
   <data name="mainProgress" xml:space="preserve">
     <value>Progress</value>
   </data>
   <data name="mainQuit" xml:space="preserve">
     <value>Quit GRBL-Plotter?</value>
-  </data>
-  <data name="mainSimuSpeed" xml:space="preserve">
-    <value>Speed</value>
   </data>
   <data name="mainSimuStart" xml:space="preserve">
     <value>Start path simulation</value>
@@ -402,20 +330,8 @@
   <data name="cameraDistortionMarker" xml:space="preserve">
     <value>Distortion marker</value>
   </data>
-  <data name="probing" xml:space="preserve">
-    <value>probing</value>
-  </data>
-  <data name="scan" xml:space="preserve">
-    <value>scan</value>
-  </data>
-  <data name="heightScan" xml:space="preserve">
-    <value>height scan</value>
-  </data>
   <data name="useCaseInfo" xml:space="preserve">
     <value>A use-case is a presetted setup to adjust settings for a specific machine and/or application.\r\nThe settings of a selected and applied use-case also remain after the import of the graphics.\r\nA use-case needs to be stored in \data\usecases to be accessible.\r\nAlso exported machine-settings and sub-sets of it can be used.</value>
-  </data>
-  <data name="useCaseInfo2" xml:space="preserve">
-    <value>Information</value>
   </data>
   <data name="useCaseHeader1" xml:space="preserve">
     <value>Use current settings (last loaded: '{0}')</value>
@@ -483,9 +399,6 @@ https://librecad.readthedocs.io/en/latest/ref/widgets.html#widget-layerlist</val
   </data>
   <data name="statusStripeStreamingFinish" xml:space="preserve">
     <value>Streaming FINISHED after</value>
-  </data>
-  <data name="NewKey" xml:space="preserve">
-    <value />
   </data>
   <data name="codeMessage_1102_dontplot" xml:space="preserve">
     <value>Layer, path or object is not visible because of visibility attribute.</value>
@@ -728,5 +641,8 @@ Possible workaround: try to convert object to path.</value>
   </data>
   <data name="loadMessageReload" xml:space="preserve">
     <value>Reload File</value>
+  </data>
+  <data name="mainInfoToolChange" xml:space="preserve">
+    <value>Tool change...</value>
   </data>
 </root>

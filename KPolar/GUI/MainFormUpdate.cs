@@ -356,42 +356,8 @@ namespace GrblPlotter
 
         // update controls on Main form (disable if streaming or no serial)
         // private void UpdateControlEnables()
-        private void UpdateControlEnables()
-        {
-            if (this.InvokeRequired)
-            { this.BeginInvoke((MethodInvoker)delegate () { UpdateControlEnablesInvoked(); }); }
-            else
-            { UpdateControlEnablesInvoked(); }
-        }
-        private void UpdateControlEnablesInvoked()//bool allowControl)
-        {
-            bool isConnected = false;
-            
-
-
-            bool allowControl = isStreamingPause;
-            Logger.Trace("◯◯◯ updateControls isConnected:{0} isStreaming:{1} streamingAllowControl:{2} source:{3}", isConnected, isStreaming, allowControl, timerUpdateControlSource);
-            timerUpdateControlSource = "";
-
-            
-
-           
-
-            btnOffsetApply.Enabled = !isStreaming;
-            gCodeToolStripMenuItem.Enabled = !isStreaming;
-
-            
-            //    btnReset.Enabled = isConnected;
-           
-
-            btnStreamStart.Enabled = false;     // sometimes nok
-            btnStreamStart.Enabled = isConnected;// & isFileLoaded;
-            btnStreamStop.Enabled = isConnected; // & isFileLoaded;
-            
-
-            
-            EnableCmsCodeBlocks(VisuGCode.CodeBlocksAvailable());
-        }
+       
+        
 
 
         #region Custom Buttons

@@ -303,7 +303,7 @@ namespace GrblPlotter
 
             modal = new ModalGroup();               // clear
             XmlMarker.Reset();                      // reset lists, holding marker line numbers
-            oldLine.ResetAll(Grbl.posWork);         // reset coordinates and parser modes, set initial pos
+            oldLine.ResetAll(Grbl.homePoint);         // reset coordinates and parser modes, set initial pos
             newLine.ResetAll();                     // reset coordinates and parser modes
 
             ClearDrawingPath();                    	// reset paths, dimensions

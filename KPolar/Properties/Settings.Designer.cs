@@ -1501,18 +1501,6 @@ namespace GrblPlotter.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ctrlCommentOut {
-            get {
-                return ((bool)(this["ctrlCommentOut"]));
-            }
-            set {
-                this["ctrlCommentOut"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ctrlConnectMarlin {
             get {
@@ -2665,7 +2653,7 @@ namespace GrblPlotter.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Fuchsia")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Orange")]
         public global::System.Drawing.Color gui2DColorMachineLimit {
             get {
                 return ((global::System.Drawing.Color)(this["gui2DColorMachineLimit"]));
@@ -10298,6 +10286,18 @@ namespace GrblPlotter.Properties {
             }
             set {
                 this["notifierMessageFinish"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ctrlCommentOut {
+            get {
+                return ((bool)(this["ctrlCommentOut"]));
+            }
+            set {
+                this["ctrlCommentOut"] = value;
             }
         }
     }

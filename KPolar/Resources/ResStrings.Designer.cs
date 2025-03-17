@@ -39,7 +39,7 @@ namespace GrblPlotter.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PolarPlotter.Resources.ResStrings", typeof(ResStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GrblPlotter.Resources.ResStrings", typeof(ResStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -354,114 +354,6 @@ namespace GrblPlotter.Resources {
         public static string codeMessage_warning {
             get {
                 return ResourceManager.GetString("codeMessage_warning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Alarm.
-        /// </summary>
-        public static string grblAlarm {
-            get {
-                return ResourceManager.GetString("grblAlarm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Check.
-        /// </summary>
-        public static string grblCheck {
-            get {
-                return ResourceManager.GetString("grblCheck", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Door.
-        /// </summary>
-        public static string grblDoor {
-            get {
-                return ResourceManager.GetString("grblDoor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Hold.
-        /// </summary>
-        public static string grblHold {
-            get {
-                return ResourceManager.GetString("grblHold", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Home.
-        /// </summary>
-        public static string grblHome {
-            get {
-                return ResourceManager.GetString("grblHome", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Idle.
-        /// </summary>
-        public static string grblIdle {
-            get {
-                return ResourceManager.GetString("grblIdle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Jog.
-        /// </summary>
-        public static string grblJog {
-            get {
-                return ResourceManager.GetString("grblJog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à grbl controller is not connected!\r\nCannot perform the desired action!.
-        /// </summary>
-        public static string grblNotConnected {
-            get {
-                return ResourceManager.GetString("grblNotConnected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Probe.
-        /// </summary>
-        public static string grblProbe {
-            get {
-                return ResourceManager.GetString("grblProbe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Run.
-        /// </summary>
-        public static string grblRun {
-            get {
-                return ResourceManager.GetString("grblRun", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Sleep.
-        /// </summary>
-        public static string grblSleep {
-            get {
-                return ResourceManager.GetString("grblSleep", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à height scan.
-        /// </summary>
-        public static string heightScan {
-            get {
-                return ResourceManager.GetString("heightScan", resourceCulture);
             }
         }
         
@@ -1069,15 +961,6 @@ namespace GrblPlotter.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Feel free to improove translation.
-        /// </summary>
-        public static string mainHelpLanguage {
-            get {
-                return ResourceManager.GetString("mainHelpLanguage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Recherche une chaîne localisée semblable à File &apos;hotkeys.xml&apos; not found, no hotkeys set!.
         /// </summary>
         public static string mainHotkeyError {
@@ -1141,83 +1024,11 @@ namespace GrblPlotter.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Press &apos;Kill Alarm&apos; to proceed (&apos;$X&apos;).
-        /// </summary>
-        public static string mainInfoKill {
-            get {
-                return ResourceManager.GetString("mainInfoKill", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Laser Mode not active $32=0.
-        /// </summary>
-        public static string mainInfoLaserModeOff {
-            get {
-                return ResourceManager.GetString("mainInfoLaserModeOff", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Laser Mode active $32=1.
-        /// </summary>
-        public static string mainInfoLaserModeOn {
-            get {
-                return ResourceManager.GetString("mainInfoLaserModeOn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Pause streaming - press play (.
-        /// </summary>
-        public static string mainInfoPause {
-            get {
-                return ResourceManager.GetString("mainInfoPause", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Probing.
-        /// </summary>
-        public static string mainInfoProbing {
-            get {
-                return ResourceManager.GetString("mainInfoProbing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Press &apos;Resume&apos; to proceed.
-        /// </summary>
-        public static string mainInfoResume {
-            get {
-                return ResourceManager.GetString("mainInfoResume", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Recherche une chaîne localisée semblable à Send G-Code.
         /// </summary>
         public static string mainInfoSendCode {
             get {
                 return ResourceManager.GetString("mainInfoSendCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à STOP streaming (.
-        /// </summary>
-        public static string mainInfoStopStream {
-            get {
-                return ResourceManager.GetString("mainInfoStopStream", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à STOP streaming ( Line.
-        /// </summary>
-        public static string mainInfoStopStream2 {
-            get {
-                return ResourceManager.GetString("mainInfoStopStream2", resourceCulture);
             }
         }
         
@@ -1236,15 +1047,6 @@ namespace GrblPlotter.Resources {
         public static string mainInfoUndo {
             get {
                 return ResourceManager.GetString("mainInfoUndo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Wait for IDLE, then pause (.
-        /// </summary>
-        public static string mainInfoWaitIdle {
-            get {
-                return ResourceManager.GetString("mainInfoWaitIdle", resourceCulture);
             }
         }
         
@@ -1357,15 +1159,6 @@ namespace GrblPlotter.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Problem.
-        /// </summary>
-        public static string mainProblem {
-            get {
-                return ResourceManager.GetString("mainProblem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Recherche une chaîne localisée semblable à Progress.
         /// </summary>
         public static string mainProgress {
@@ -1380,15 +1173,6 @@ namespace GrblPlotter.Resources {
         public static string mainQuit {
             get {
                 return ResourceManager.GetString("mainQuit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Speed.
-        /// </summary>
-        public static string mainSimuSpeed {
-            get {
-                return ResourceManager.GetString("mainSimuSpeed", resourceCulture);
             }
         }
         
@@ -1461,24 +1245,6 @@ namespace GrblPlotter.Resources {
         public static string mainUnknownCode {
             get {
                 return ResourceManager.GetString("mainUnknownCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string NewKey {
-            get {
-                return ResourceManager.GetString("NewKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à probing.
-        /// </summary>
-        public static string probing {
-            get {
-                return ResourceManager.GetString("probing", resourceCulture);
             }
         }
         
@@ -1560,15 +1326,6 @@ namespace GrblPlotter.Resources {
         public static string probingTimeOut {
             get {
                 return ResourceManager.GetString("probingTimeOut", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à scan.
-        /// </summary>
-        public static string scan {
-            get {
-                return ResourceManager.GetString("scan", resourceCulture);
             }
         }
         
@@ -1857,15 +1614,6 @@ namespace GrblPlotter.Resources {
         public static string useCaseInfo {
             get {
                 return ResourceManager.GetString("useCaseInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Information.
-        /// </summary>
-        public static string useCaseInfo2 {
-            get {
-                return ResourceManager.GetString("useCaseInfo2", resourceCulture);
             }
         }
         

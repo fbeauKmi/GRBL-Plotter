@@ -718,7 +718,6 @@ namespace GrblPlotter
             this.btnStreamStart.Name = "btnStreamStart";
             this.toolTip1.SetToolTip(this.btnStreamStart, resources.GetString("btnStreamStart.ToolTip"));
             this.btnStreamStart.UseVisualStyleBackColor = true;
-            this.btnStreamStart.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnStreamStart_Click);
             // 
             // label6
             // 
@@ -773,7 +772,7 @@ namespace GrblPlotter
             resources.ApplyResources(this.btnOpenFile, "btnOpenFile");
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.UseVisualStyleBackColor = true;
-            this.btnOpenFile.Click += new System.EventHandler(this.BtnOpenFile_Click);
+            this.btnOpenFile.Click += new System.EventHandler(this.OpenFile_event);
             // 
             // tbFile
             // 
@@ -1182,7 +1181,7 @@ namespace GrblPlotter
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             resources.ApplyResources(this.loadToolStripMenuItem, "loadToolStripMenuItem");
-            this.loadToolStripMenuItem.Click += new System.EventHandler(this.BtnOpenFile_Click);
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.OpenFile_event);
             // 
             // toolStripMenuItem2
             // 

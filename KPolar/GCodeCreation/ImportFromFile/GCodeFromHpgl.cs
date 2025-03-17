@@ -622,7 +622,7 @@ namespace GrblPlotter
                 else if (coord.IndexOf(".") != -1) { delimiter = '.'; }
 
                 string[] coordinates = coord.Trim().Split(delimiter);
-                Point tmpPoint = new Point();
+                //Point tmpPoint = new Point();
 
                 double[] floatArgs = coordinates.Select(arg => double.Parse(arg.Trim(), System.Globalization.NumberStyles.Number, System.Globalization.NumberFormatInfo.InvariantInfo)).ToArray();
                 return floatArgs;

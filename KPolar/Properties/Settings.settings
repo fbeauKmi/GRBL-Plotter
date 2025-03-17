@@ -371,9 +371,6 @@
     <Setting Name="ctrlColorizeGCode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ctrlCommentOut" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="ctrlConnectMarlin" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -663,7 +660,7 @@
       <Value Profile="(Default)">Yellow</Value>
     </Setting>
     <Setting Name="gui2DColorMachineLimit" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Fuchsia</Value>
+      <Value Profile="(Default)">Orange</Value>
     </Setting>
     <Setting Name="gui2DColorMarker" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DeepPink</Value>
@@ -2569,6 +2566,9 @@
     </Setting>
     <Setting Name="notifierMessageFinish" Type="System.String" Scope="User">
       <Value Profile="(Default)">Streaming via KPolar finished</Value>
+    </Setting>
+    <Setting Name="ctrlCommentOut" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

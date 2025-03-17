@@ -50,7 +50,7 @@ namespace GrblPlotter
             Gcode.Comment(finalString, string.Format("{0} Width=\"{1:0.0}\" />", XmlMarker.PixelArt, pixelArtDotWidth));
             int toolNr, skipTooNr = 1;
             short key;
-            PointF tmpP;
+            //PointF tmpP;
             int pathCount = 0;
 
             double gCodeWidth = pixelArtDotWidth / 2;
@@ -110,10 +110,10 @@ namespace GrblPlotter
             Logger.Info("▼▼  ConvertColorMapBWPixelArt reso:{0}", pixelArtDistance);
             Gcode.Comment(finalString, string.Format("{0} Width=\"{1:0.0}\" />", XmlMarker.PixelArt, pixelArtDotWidth));
             short key;
-            PointF tmpP;
+            //PointF tmpP;
             int pathCount = 0;
             SortByGrayValue(false);
-            short grayVal;
+            //short grayVal;
 
             for (int index = 0; index <= 255; index++)  // go through possible gray values
             {
@@ -311,9 +311,9 @@ namespace GrblPlotter
             pixelArtDotWidth = (double)NuDPixelArtDotSize.Value;
             pixelArtGapWidth = (double)NuDPixelArtGapSize.Value;
             bool drawShape = RbPixelArtShape.Checked;
-            int drawType = 0;
-            if (RbPixelArtDrawShapeRect.Checked)
-                drawType = 1;
+            //int drawType = 0;
+            //if (RbPixelArtDrawShapeRect.Checked)
+            //    drawType = 1;
 
             Logger.Trace("CreatePixelPattern  width:{0}  heigth:{1} resultImg-w:{2}  resultImg-h:{3}  cncPixelResoX:{4}  resoDesiredX:{5}", width, height, resultImage.Width, resultImage.Height, cncPixelResoX, resoDesiredX);
             int x, y;

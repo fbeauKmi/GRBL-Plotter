@@ -342,7 +342,7 @@ namespace GrblPlotter
             Point pEnd = pixelPath[Geti(end)].p;
             int h0 = PerpendicularDistanceInt(pStart, pEnd, pixelPath[Geti(start + 1)].p);
             int h1 = PerpendicularDistanceInt(pStart, pEnd, pixelPath[Geti(start + 2)].p);
-            int h2 = PerpendicularDistanceInt(pStart, pEnd, pixelPath[Geti(start + 3)].p);
+            
             if ((Math.Abs(h0 + h1) > 10 * pixelScale * pixelScale))// || (Math.Abs(h1 + h2) > 10 * pixelScale * pixelScale))
             {
                 start++;
@@ -353,7 +353,6 @@ namespace GrblPlotter
             }
             h0 = PerpendicularDistanceInt(pStart, pEnd, pixelPath[Geti(end - 1)].p);
             h1 = PerpendicularDistanceInt(pStart, pEnd, pixelPath[Geti(end - 2)].p);
-            h2 = PerpendicularDistanceInt(pStart, pEnd, pixelPath[Geti(end - 3)].p);
             if ((Math.Abs(h0 + h1) > 10 * pixelScale * pixelScale))// || (Math.Abs(h1 + h2) > 10 * pixelScale * pixelScale))
             {
                 end--;
@@ -370,7 +369,7 @@ namespace GrblPlotter
             pdDistance.Clear();
             pdGradient.Clear();
             List<Point> removed = new List<Point>();
-            int diff0, diff1, diff2, havg = 0, h0, h1 = 0;
+            int diff0, diff1, diff2, h0, h1 = 0;
             int pdMax = 0, pdMaxIndex = start;
             int pdMin = 1000, pdMinIndex = end;
             int diff01Max = 0;
@@ -1200,7 +1199,7 @@ namespace GrblPlotter
                         }
                     }
                     if (logBezier) Logger.Trace("CalcCubicBezier ready  resultPath.Count:{0}  pixelpath:{1}", resultPath.Count, (end - start));
-                    int ri = 0;
+                    //int ri = 0;
                     double step = (double)resultPath.Count / (end - start);
                     double ci = 0;
 
@@ -1217,9 +1216,7 @@ namespace GrblPlotter
                 }
             }
 
-            System.Windows.Point toPointD(Point p)
-            { return new System.Windows.Point(p.X, p.Y); }
-
+           
             void AddResultPath(System.Windows.Point p, string cmt)
             {
                 resultPath.Add(new Point((int)p.X, (int)p.Y));

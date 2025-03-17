@@ -579,13 +579,13 @@ namespace GrblPlotter
             //    SendCommand(string.Format("(Click line:{0}  marked:{1})", fCTBCodeClickedLineNow, lastMarkerType));
 
 
-            if ((markerType != XmlMarkerType.None) && VisuGCode.CodeBlocksAvailable() && !isStreaming)
+            if ((markerType != XmlMarkerType.None) && VisuGCode.CodeBlocksAvailable())
             {
                 SelectionHandle.SelectedMarkerType = markerType;
                 SelectionHandle.SelectedMarkerLine = fCTBCodeClickedLineNow;
             }
 
-            if (VisuGCode.CodeBlocksAvailable() && !isStreaming)
+            if (VisuGCode.CodeBlocksAvailable() )
             { StatusStripSet(1, Localization.GetString("statusStripeClickKeys2"), Color.LightGreen); }  // Click: mark Figure; Control-Click: mark Group; Shift-Click: mark Tile;Alt-Click: show GCode line
 
             //   FctbSetBookmark(true);             // set Bookmark and marker in 2D-View
@@ -622,7 +622,7 @@ namespace GrblPlotter
                 { SelectNextFigureGroupTile(-1); }
 
                 StatusStripClear(1); // FctbCode_KeyDown
-                if (VisuGCode.CodeBlocksAvailable() && figureIsMarked && !isStreaming)
+                if (VisuGCode.CodeBlocksAvailable() && figureIsMarked)
                 {
                     StatusStripSet(1, Localization.GetString("statusStripeUpKeys"), Color.LightGreen);      // Control-Up to move selected Block one up; Control-Shift-Up to move to top
                 }
@@ -642,7 +642,7 @@ namespace GrblPlotter
                 { SelectNextFigureGroupTile(+1); }
 
                 StatusStripClear(1); // FctbCode_KeyDown
-                if (VisuGCode.CodeBlocksAvailable() && figureIsMarked && !isStreaming)
+                if (VisuGCode.CodeBlocksAvailable() && figureIsMarked)
                 {
                     StatusStripSet(1, Localization.GetString("statusStripeDownKeys"), Color.LightGreen);        // Control-Down to move selected Block one down; Control-Shift-Down to move to end
                 }
@@ -728,7 +728,7 @@ namespace GrblPlotter
             fCTBCode.UnbookmarkLine(fCTBCodeClickedLineLast);
             fCTBCode.BookmarkLine(fCTBCodeClickedLineNow);
             //    fCTBCode.DoCaretVisible();
-            if ((markerType != XmlMarkerType.None) && VisuGCode.CodeBlocksAvailable() && !isStreaming)
+            if ((markerType != XmlMarkerType.None) && VisuGCode.CodeBlocksAvailable())
             {
                 SelectionHandle.SelectedMarkerType = markerType;
                 SelectionHandle.SelectedMarkerLine = fCTBCodeClickedLineNow;
@@ -909,9 +909,7 @@ namespace GrblPlotter
 
         private void SetEditMode(bool set)
         {
-            if (isStreaming)
-                return;
-
+           
             manualEdit = set;
             //      fCTBCode.BackColor = set? Color.FromArgb(255, 255, 255, 100): Color.White;
             if (set)
@@ -946,7 +944,7 @@ namespace GrblPlotter
 
         private bool FindFigureMarkSelection(XmlMarkerType marker, int clickedLine, DistanceByLine markerProperties)    //bool collapse = true)   // called by click on figure in 2D view
         {
-            if ((manualEdit || !VisuGCode.CodeBlocksAvailable() || isStreaming))
+            if ((manualEdit || !VisuGCode.CodeBlocksAvailable()))
                 return false;
             if (logDetailed || logSelection)
                 Logger.Trace("FindFigureMarkSelection marker:{0}  line:{1}  ", marker, clickedLine);//, collapse);

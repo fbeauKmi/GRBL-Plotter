@@ -696,7 +696,7 @@ namespace GrblPlotter //DXFImporter
             else if (entity.GetType() == typeof(DXFSpline))
             {
 
-                bool newAlgorythm = false;
+                //bool newAlgorythm = false;
 
                 //    Graphic.SetGeometry("Spline");
                 DXFSpline spline = (DXFSpline)entity;
