@@ -12,6 +12,8 @@ namespace GrblPlotter.GUI
 {
     public partial class CustomDialog : Form
     {
+        private object sender;
+
         public enum DialogResult
         {
             Upload,
@@ -20,8 +22,9 @@ namespace GrblPlotter.GUI
         }
         public DialogResult Result { get; private set; }
 
-        public CustomDialog(string message, string caption, Form owner)
+        public CustomDialog(string message, string caption, object sender, Form owner)
         {
+            this.sender = sender;
             this.Owner = owner;
             InitializeComponent();
             this.Text = caption;
@@ -124,6 +127,11 @@ namespace GrblPlotter.GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 85);
+            // Add this line in the InitializeComponent method to disable size change by user
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonUploadAndPrint);
             this.Controls.Add(this.buttonUpload);
@@ -131,8 +139,24 @@ namespace GrblPlotter.GUI
             this.Name = "CustomDialog";
             this.Text = "CustomDialog";
 
-            this.Left = this.Owner.Left;
-            this.Top = this.Owner.Top;
+            this.StartPosition = FormStartPosition.Manual;
+            if (this.sender is Control control)
+            {
+                Point point = control.PointToScreen(new Point(0, 0));
+                this.Location = new Point(point.X + (control.Width - this.Width)/2,
+                                           point.Y + (control.Width - this.Width) / 2);
+            }
+            else if (this.sender is GroupBox groupBox)
+            {
+                Point point = groupBox.PointToClient(new Point(0, 0));
+                this.Location = new Point(point.X + (groupBox.Width - this.Width) / 2,
+                                           point.Y - (groupBox.Height - this.Height) / 2);
+            }
+            else
+            {
+                this.Location = new Point(this.Owner.Location.X + 25,
+                                          this.Owner.Location.Y + 25);
+            }
 
             this.Icon = Properties.Resources.Icon;
 

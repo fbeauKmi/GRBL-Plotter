@@ -40,6 +40,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Web.UI;
 
 namespace GrblPlotter
 {
@@ -115,6 +116,7 @@ namespace GrblPlotter
             bool passLimit = false;
             bool zUp, zDown;
             var pathOld = path;
+            
 
             if (newL.isSubroutine && (!oldL.isSubroutine))
                 MarkPath(pathPenUp, (float)newL.actualPos.X, (float)newL.actualPos.Y, 2); // 2=rectangle
@@ -229,10 +231,55 @@ namespace GrblPlotter
                             }
                         }
 
-                        //    if (!((path == pathPenUp) && largeDataAmount && (oldL.lineNumber > 10) && (oldL.lineNumber < (numberDataLines - 10))))
-                        // no improovement, when skipping pen-up paths 2022-04-20
-                        path.AddLine((float)oldL.actualPos.X + viewOffset.X, (float)oldL.actualPos.Y + viewOffset.Y, (float)newL.actualPos.X + viewOffset.X, (float)newL.actualPos.Y + viewOffset.Y);   // 2021-09-02
 
+                        // Draw fake linear motition for Polar Stepper for Polar plotter
+                        // fix for Polar plotter, when G0 is used
+                        // calculate radius and angles
+                        var PosnewL = newL.actualPos;
+                        var PosoldL = oldL.actualPos;
+                        if (newL.motionMode == 0)
+                        {
+                            var roldL = Math.Sqrt(Math.Pow(oldL.actualPos.X, 2) + Math.Pow(oldL.actualPos.Y, 2));
+                            var rnewL = Math.Sqrt(Math.Pow(newL.actualPos.X, 2) + Math.Pow(newL.actualPos.Y, 2));
+                            var thetaoldL = Math.Atan2(oldL.actualPos.Y, oldL.actualPos.X);
+                            var thetanewL = Math.Atan2(newL.actualPos.Y, newL.actualPos.X);
+                            // choose shortest path
+                            if (thetanewL - thetaoldL > Math.PI)
+                            {
+                                thetaoldL += 2 * Math.PI;
+                            }
+                            else if (thetanewL - thetaoldL < -Math.PI)
+                            {
+                                thetanewL += 2 * Math.PI;
+                            }
+                            var dtheta = thetanewL - thetaoldL;
+                            // divide the path in segments
+                            var nb_segment = Math.Floor((roldL + rnewL) * Math.Abs(dtheta) / 2);
+
+
+                            if (nb_segment > 1)
+                            {
+
+                                var dtheta_segment = dtheta / nb_segment;
+                                var dr_segment = (rnewL - roldL) / nb_segment;
+
+
+                                // draw the segments
+                                for (var i = 0; i < nb_segment; i++)
+                                {
+
+                                    PosnewL.X = (roldL + dr_segment * i) * Math.Cos(thetaoldL + dtheta_segment * i);
+                                    PosnewL.Y = (roldL + dr_segment * i) * Math.Sin(thetaoldL + dtheta_segment * i);
+                                    path.AddLine((float)PosoldL.X + viewOffset.X, (float)PosoldL.Y + viewOffset.Y, (float)PosnewL.X + viewOffset.X, (float)PosnewL.Y + viewOffset.Y);
+
+                                    tempPathInfo.angleArrow = GcodeMath.GetAlpha((XyPoint)PosoldL, (XyPoint)PosnewL);
+                                    PosoldL = PosnewL;
+
+                                }
+                            }
+                        }
+                        path.AddLine((float)PosoldL.X + viewOffset.X, (float)PosoldL.Y + viewOffset.Y, (float)newL.actualPos.X + viewOffset.X, (float)newL.actualPos.Y + viewOffset.Y);
+                        
                         if (Properties.Settings.Default.gui2DShowVertexEnable && !largeDataAmount)
                         {
                             CreateMarker(path, (float)oldL.actualPos.X + viewOffset.X, (float)oldL.actualPos.Y + viewOffset.Y, (float)Properties.Settings.Default.gui2DShowVertexSize, (int)Properties.Settings.Default.gui2DShowVertexType, false);

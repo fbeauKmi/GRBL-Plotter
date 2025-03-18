@@ -577,7 +577,7 @@ namespace GrblPlotter
                 string encoding = GuiVariables.SaveEncoding[encodeIndex].BodyName;
 
                 var isPrintEnabled = new StringContent("true");
-                var dialog = new CustomDialog(filename + " is ready to upload", "Upload GCode", this);
+                var dialog = new CustomDialog(filename + " is ready to upload", "Upload GCode",grp1, this);
                 dialog.ShowDialog();
                 if (dialog.Result != CustomDialog.DialogResult.Cancel)
                 {
