@@ -13,11 +13,11 @@ A fork of GRBL-Plotter quickly remastered to work with my Klipper Polar Plotter
 [![GitHub latest commit](https://badgen.net/github/last-commit/svenhb/GRBL-Plotter)](https://GitHub.com/svenhb/GRBL-Plotter/commit/)
 [![Github all releases](https://img.shields.io/github/downloads/svenhb/GRBL-Plotter/total.svg)](https://GitHub.com/svenhb/GRBL-Plotter/releases/)  
 
-#### [KPlotter Vers. 0.1.0.0](https://github.com/fbeaukmi/KPolar/releases/latest)  2025-03-16     
+#### [KPlotter Vers. 0.1.0.1](https://github.com/fbeaukmi/KPolar/releases/latest)  2025-03-16     
 
 ### Requirements for compiling
 * VisualStudio 2022 
 * .NET 4.8
 
-![KPolar?jpg](./kpolar.jpg)
+![KPolar.png](./kpolar.png)
  
